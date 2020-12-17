@@ -1,0 +1,81 @@
+<GridLayout class="page" rows="auto,auto,auto,*">
+    <GridLayout row="0" class="header-container" rows="auto,auto">
+        <GridLayout row="0" height="auto" width="100%" marginTop="10" columns="auto,auto">
+            <StackLayout col="0" class="back-icon-container" (tap)="onBack()">
+                <Image class="back-icon" [src]="backIcon"></Image>
+            </StackLayout>
+            <StackLayout col="1" class="main-heading-container">
+                <Label class="main-heading" [text]="mainHeading"></Label>
+            </StackLayout>
+        </GridLayout>
+        <StackLayout row="1" width="95%" height="auto" marginTop="10" marginBottom="5" verticalAlignment="middle">
+            <Label text="Enter the address details to save for future deliveries" textWrap="true" fontSize="16%"
+                color="#ffffff" textAlignment="center"></Label>
+        </StackLayout>
+    </GridLayout>
+    <StackLayout row="1" height="auto" width="95%" marginTop="10">
+        <Label col="0" verticalAlignment="middle" text="Get Paid" fontSize="18%" color="#000000"
+            fontWeight="500"></Label>
+    </StackLayout>
+
+    <StackLayout row="2" height="auto" width="100%" marginTop="10" orientation="vertical">
+        <GridLayout class="address-type-container" columns="auto,auto,*">
+            <Image col="0" src="res://addresses" width="30" height="30"></Image>
+            <StackLayout col="1" width="2" height="30" marginLeft="5" backgroundColor="#d0d5d7"></StackLayout>
+            <!-- <TextField #nameid class="txtfield" marginLeft="5" hint="Address type" (textChange)="nameTextField($event)"
+                (blur)="nameBlur()" style.placeholderColor="#d0d5d7">
+            </TextField> -->
+            <Button id="menuBtn" col="2" [text]="addressTypeButton" class="address-type-button"
+                (tap)="onAddressType()"></Button>
+        </GridLayout>
+        <StackLayout class="txtFieldContainer">
+            <TextField #locId class="txtfield" marginLeft="5" hint="Your Location" (textChange)="locTextField($event)"
+                (blur)="locBlur()" style.placeholderColor="#d0d5d7">
+            </TextField>
+        </StackLayout>
+        <StackLayout class="txtFieldContainer">
+            <TextField #pincodeId class="txtfield" marginLeft="5" hint="Pincode" (textChange)="pinTextField($event)"
+                (blur)="pincodeBlur()" style.placeholderColor="#d0d5d7">
+
+            </TextField>
+        </StackLayout>
+        <StackLayout class="txtFieldContainer">
+            <TextField #cityId class="txtfield" marginLeft="5" hint="City" (textChange)="cityTextField($event)"
+                (blur)="cityBlur()" style.placeholderColor="#d0d5d7">
+            </TextField>
+        </StackLayout>
+        <StackLayout class="txtFieldContainer">
+            <TextField #mobId class="txtfield" marginLeft="5" hint="Phone Number" (textChange)="mobTextField($event)"
+                (blur)="mobBlur()" style.placeholderColor="#d0d5d7">
+            </TextField>
+        </StackLayout>
+        <StackLayout class="addAddressContainer">
+            <Button class="addAddressButton" text="ADD ADDRESS"></Button>
+        </StackLayout>
+    </StackLayout>
+
+</GridLayout>
+<!-- <Label text="Name" ></Label>
+    <textfield #nameid class="txtfiledAll" (textChange)="nameTextField($event)" padding="1" (blur)="nameblur()"></textfield>
+    <Label text="MOBILE"></Label>
+    <textfield class="txtfiledAll" #mobid keyboardType="phone" maxlength='10' padding="1" (blur)="mobblur()"  (textChange)="mobTextField($event)"></textfield>
+    <Label  text="ADRESS"></Label>
+    <textfield #locid class="txtfiledAll" (textChange)="locTextField($event)"  padding="1" (blur)="houseblur()"></textfield>
+    <Label text="HOUSE  /LANDMARK"></Label>
+    <textfield #flatid class="txtfiledAll"  (textChange)="flatTextField($event)"  padding="1" (blur)="flatblur()"></textfield>
+    
+    <StackLayout orientation="horizontal">
+        <textfield text="CITY" editable='False' class="txt"></textfield>
+    <textfield #cityid class="enterpincity" (blur)="cityblur()"  padding="1" ></textfield>
+    <textfield text="PINCODE" editable='False' class="txt" marginLeft="10"></textfield>
+    <textfield #pincodeid class="pincode2" keyboardType="phone" (blur)="pincodeblur()"  ></textfield>
+</StackLayout>
+            <label [text]="errormsg" class="errormsg" ></label>
+    <GridLayout class="grid">
+        <Button text="save" class="btn" (tap)="onsave()"></Button>
+    </GridLayout>
+
+</StackLayout>
+
+</ScrollView>
+</StackLayout> -->

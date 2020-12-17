@@ -1,0 +1,93 @@
+<GridLayout class="page" rows="auto,*">
+  <StackLayout row="0" class="profile-container" orientation="vertical">
+    <GridLayout class="label-container" columns="auto,auto,auto">
+      <StackLayout col="0" class="profile-icon-container" (tap)="onBack()">
+        <Image class="profile-icon" [src]="backIcon"></Image>
+      </StackLayout>
+      <StackLayout col="1" width="70%" height="auto">
+        <StackLayout class="profile-label-container">
+          <Label text="S" class="profile-label"></Label>
+        </StackLayout>
+      </StackLayout>
+      <StackLayout class="profile-icon-container" col="2" (tap)="onProfileEdit()">
+        <Image class="profile-icon" [src]="profileEdit"></Image>
+      </StackLayout>
+    </GridLayout>
+    <StackLayout class="profile-detail-container">
+      <Label [text]="userName" class="profile-detail"></Label>
+    </StackLayout>
+    <StackLayout class="profile-detail-container">
+      <Label [text]="'+91 '+ mobNo" class="profile-detail"></Label>
+    </StackLayout>
+    <StackLayout class="profile-detail-container" marginBottom="5">
+      <Label [text]="email" class="profile-detail"></Label>
+    </StackLayout>
+  </StackLayout>
+  <ScrollView class="bottom-container" row="1">
+    <StackLayout width="100%" orientation="vertical">
+      <GridLayout class="card-container" androidElevation="2" columns="auto,auto,auto">
+        <StackLayout col="0" class="icon-container" (tap)="onProfileEdit()">
+          <Image class="icon" [src]="orderIcon"></Image>
+        </StackLayout>
+        <StackLayout col="1" class="detail-container" orientation="vertical">
+          <Label [text]="orderHeading" class="detail-heading"></Label>
+          <Label [text]="orderTitle" class="detail-title" textWrap="true"></Label>
+        </StackLayout>
+        <StackLayout col="2" class="icon-container" (tap)="onProfileEdit()">
+          <Image class="next-icon" [src]="nextIcon"></Image>
+        </StackLayout>
+      </GridLayout>
+      <GridLayout class="card-container" androidElevation="2" columns="auto,auto,auto">
+        <StackLayout col="0" class="icon-container" (tap)="onProfileEdit()">
+          <Image class="icon" [src]="wishlistIcon"></Image>
+        </StackLayout>
+        <StackLayout col="1" class="detail-container" orientation="vertical">
+          <Label [text]="wishlistHeading" class="detail-heading"></Label>
+          <Label [text]="wishlistTitle" class="detail-title" textWrap="true"></Label>
+        </StackLayout>
+        <StackLayout col="2" class="icon-container" (tap)="onProfileEdit()">
+          <Image class="next-icon" [src]="nextIcon"></Image>
+        </StackLayout>
+      </GridLayout>
+      <GridLayout class="card-container" androidElevation="2" columns="auto,auto,auto" (tap)="onAddresses()">
+        <StackLayout col="0" class="icon-container" (tap)="onProfileEdit()">
+          <Image class="icon" [src]="addressIcon"></Image>
+        </StackLayout>
+        <StackLayout col="1" class="detail-container" orientation="vertical">
+          <Label [text]="addressHeading" class="detail-heading"></Label>
+          <Label [text]="addressTitle" class="detail-title" textWrap="true"></Label>
+        </StackLayout>
+        <StackLayout col="2" class="icon-container" (tap)="onProfileEdit()">
+          <Image class="next-icon" [src]="nextIcon"></Image>
+        </StackLayout>
+      </GridLayout>
+      <GridLayout class="card-container" androidElevation="2" columns="auto,auto,auto">
+        <StackLayout col="0" class="icon-container" (tap)="onProfileEdit()">
+          <Image class="icon" [src]="couponIcon"></Image>
+        </StackLayout>
+        <StackLayout col="1" class="detail-container" orientation="vertical">
+          <Label [text]="couponHeading" class="detail-heading"></Label>
+          <Label [text]="couponTitle" class="detail-title" textWrap="true"></Label>
+        </StackLayout>
+        <StackLayout col="2" class="icon-container" (tap)="onProfileEdit()">
+          <Image class="next-icon" [src]="nextIcon"></Image>
+        </StackLayout>
+      </GridLayout>
+      <GridLayout class="card-container" marginBottom="10" androidElevation="2" columns="auto,auto,auto">
+        <StackLayout col="0" class="icon-container" (tap)="onProfileEdit()">
+          <Image class="icon" [src]="helpIcon"></Image>
+        </StackLayout>
+        <StackLayout col="1" class="detail-container" orientation="vertical">
+          <Label [text]="helpHeading" class="detail-heading"></Label>
+          <Label [text]="helpTitle" class="detail-title" textWrap="true"></Label>
+        </StackLayout>
+        <StackLayout col="2" class="icon-container" (tap)="onProfileEdit()">
+          <Image class="next-icon" [src]="nextIcon"></Image>
+        </StackLayout>
+      </GridLayout>
+      <StackLayout class="logout-button-container">
+        <Button class="logout-button" [text]="logoutButton" (tap)="onLogoutButton()"></Button>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+</GridLayout>

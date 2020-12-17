@@ -1,0 +1,149 @@
+<Page class="page" class="page">
+  <StackLayout>
+    <StackLayout>
+      <ScrollView>
+        <StackLayout oreintation="vertical">
+          <!-- <StackLayout height="40%">
+            <label text="Adfaf"></label>
+            <ns-addAdress></ns-addAdress>
+                           </StackLayout> -->
+          <StackLayout height="auto">
+            <CardView elevation="10" margin="4">
+              <GridLayout columns="3*,*" margin="4">
+                <StackLayout col="0">
+                  <label text="Deliver To.....152116" color="black" fontSize="15"></label>
+                  <StackLayout orientation="Horizontal">
+                    <label text="10 n quater ,quater no "></label>
+                    <label text="adafaf afafaf"></label>
+                  </StackLayout>
+                </StackLayout>
+                <StackLayout col="1">
+                  <button text="Chage" color="blue"></button>
+                </StackLayout>
+              </GridLayout>
+            </CardView>
+          </StackLayout>
+          <StackLayout *ngIf="chkCorrier()" height="auto">
+            <CardView radius="10" class="cartHeading" elevation="2" shape="OVAL" ripple="false" margin="10">
+              <label text="Courrier Items" fontSize="17" color="black" backgroundColor="pink"></label>
+            </CardView>
+            <ListView [items]="cartItem">
+              <ng-template let-item="item" let-i="index">
+                <ScrollView>
+                  <StackLayout width="98%" *ngIf="chkCorItem(i)">
+                    <CardView radius="10" elevation="10" shape="OVAL" ripple="true" margin="4">
+                      <GridLayout columns="2*,5*,*">
+                        <Image col="0" stretch="fill" height="100" width="210" [src]="item.img">
+                        </Image>
+                        <StackLayout col="1" class="cartInfo">
+                          <GridLayout rows="4*,2*,*,3*,*">
+                            <label row="0" [text]="item.itemName"></label>
+                            <label row="1" [text]="item.itemDesc"></label>
+                            <label row="2" [text]="'soldy by' + soldby" FontSize="2"></label>
+                            <StackLayout row="3" orientation="Horizontal">
+                              <label [text]="'₹' + item.sellPrice" fontSize="15" color="black"></label>
+                              <label [text]="'₹' + item.MRP" textDecoration="line-through" fontSize="14"
+                                marginLeft="5"></label>
+                              <label text="15%OFF" color="Red" marginLeft="5"></label>
+                            </StackLayout>
+                            <label row="4" text="Expected Delivery at " color="green"></label>
+                          </GridLayout>
+                        </StackLayout>
+                        <Image col="2" (tap)="removeItem(i)"
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRSYqJUTYii1tpjU3vpiAO-ir6Im9vNEV8V8lRICZiqJ_zlrdLM">
+                        </Image>
+                      </GridLayout>
+                    </CardView>
+                  </StackLayout>
+                </ScrollView>
+              </ng-template>
+            </ListView>
+          </StackLayout>
+          <StackLayout *ngIf="chkLocal()" height="auto">
+            <CardView radius="10" elevation="3" shape="OVAL" ripple="false" margin="10">
+              <label text="Express Items" class="cartHeading" fontSize="17" color="black"
+                backgroundColor="pink"></label>
+            </CardView>
+            <ListView [items]="cartItem">
+              <ng-template let-item="item" let-i="index">
+                <ScrollView>
+                  <StackLayout *ngIf="chkLocalItem(i)">
+                    <CardView radius="10" elevation="10" shape="OVAL" ripple="true" margin="4">
+                      <GridLayout columns="2*,5*,*">
+                        <Image col="0" stretch="fill" height="100" width="210" [src]="item.img">
+                        </Image>
+                        <StackLayout col="1" class="cartInfo">
+                          <GridLayout rows="4*,2*,*,3*">
+                            <label row="0" [text]="item.itemName"></label>
+                            <label row="1" [text]="item.itemDesc"></label>
+                            <label row="2" [text]="'soldy by' + soldby" FontSize="2"></label>
+                            <StackLayout row="3" orientation="Horizontal">
+                              <label [text]="'₹' + item.sellPrice" fontSize="15" color="black"></label>
+                              <label [text]="'₹' + item.MRP" textDecoration="line-through" fontSize="14"
+                                marginLeft="5"></label>
+                              <label text="15%OFF" color="Red" marginLeft="5"></label>
+                            </StackLayout>
+                          </GridLayout>
+                        </StackLayout>
+                        <Image col="2" (tap)="removeItem(i)"
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRSYqJUTYii1tpjU3vpiAO-ir6Im9vNEV8V8lRICZiqJ_zlrdLM">
+                        </Image>
+                      </GridLayout>
+                    </CardView>
+                  </StackLayout>
+                </ScrollView>
+              </ng-template>
+            </ListView>
+          </StackLayout>
+          <StackLayout height="auto">
+           <ListView [items]="deliveryDay">  
+              <ng-template let-i="index" let-item="item">
+                <StackLayout>
+                  <label [text]="item"></label>
+                </StackLayout>
+              </ng-template>
+              
+           </ListView>
+            <!-- <label text="Delivery On"></label>
+            <label text="Standerd Delivery"
+            ></label>
+            <label text="Fix Time Slot Delivery"></label>
+            <label text="Mid Night Delivery"></label> -->
+          </StackLayout>
+          <StackLayout height="auto">
+            <StackLayout height="auto">
+              <CardView radius="10" class="cartInfo2" elevation="10" shape="OVAL" ripple="true" margin="4">
+                <label text="Delivery"></label>
+                <GridLayout columns="4*,*" rows="*,*,*,*,2*" margin="4" color="black">
+
+                  <label row='0' col="0" text="Bag Total"></label>
+                  <label row='1' col="0" text="avaiable coupon"></label>
+                  <label row='2' col="0" text="Discount"></label>
+                  <label row='3' col="0" text="Delivery Charges"></label>
+                  <label row='4' col="0" text="Amount To Pay"></label>
+
+
+                  <label row='0' col="1" [text]="'₹'+totalP" [(ngModel)]="totalP"></label>
+                  <label row='1' col="1" text="Apply" color="red"></label>
+                  <label row='2' col="2" [text]="'₹'+totalP"></label>
+                  <label row='3' col="1" [text]="'₹'+totalP"></label>
+                  <label row='4' col="1" text="₹255" fontSize='16'></label>
+
+                </GridLayout>
+              </CardView>
+            </StackLayout>
+          </StackLayout>
+        </StackLayout>
+      </ScrollView>
+    </StackLayout>
+
+    <StackLayout height="25">
+      <CartView elevation="4" margin="10" ripple="true">
+        <GridLayout columns="2*,3*">
+          <label col="0" [text]="totalP" class="cartLower"></label>
+          <button col="1" text="CheckOut" color="white" backgroundColor="red"></button>
+        </GridLayout>
+      </CartView>
+    </StackLayout>
+  </StackLayout>
+</Page>

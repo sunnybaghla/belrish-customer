@@ -1,0 +1,67 @@
+.mains
+{
+    background: linear-gradient(160deg, #690009,#36003C);
+
+    
+
+}
+.btnSize
+{
+    background: whitesmoke;
+    border-color:black;
+    border-width: 2px;
+    border-radius: 60px;
+    margin-top: 2%;
+    /* margin-left: 10%; */
+    padding-left: 2%;
+    padding-bottom: 10;
+    color: gainsboro;
+    
+    
+}
+.btn:disabled
+{
+    opacity: 0.3;
+}
+.Selected{
+    background: whitesmoke;
+    border-color:red;
+    border-width: 2px;
+    border-radius: 60%;
+    margin-top: 2%;
+    /* margin-left: 10%; */
+    padding-left: 2%;
+    padding-bottom: 10;
+    color: blue;
+
+}
+
+.desc
+{
+    padding-left: 10px;
+    color: black;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.textfields
+{
+    background-color: whitesmoke;
+    margin-top: 7;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-width: 10px;
+    border-color: lightgray;
+}
+.imgDesign
+{
+    border:gray;
+    border-width: 1px;
+    
+    margin-left: 30px;
+    
+}
+.img
+{
+    padding-top: 10px;
+    margin-top: 10px;
+}

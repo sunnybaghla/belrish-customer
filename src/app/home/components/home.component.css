@@ -1,0 +1,214 @@
+.page{
+    /* background-image: url("res://background"); */
+    background-size: cover;
+    background-color: #f1f1f1;
+    /* background:linear-gradient(#8e0e00,#1f1c18); */
+    width:100%;
+    height:100%;
+}
+
+.slider{
+    height:200;
+    width:100%;
+    background: linear-gradient(320deg,#8BDE22,#23A6DB);
+}
+
+.specialAboutUsContainer{
+    width:95%;
+}
+
+.specialAboutUs{
+    width:25%;
+    height:100%;
+}
+
+.specialAboutUsImage{
+    width:95%;
+    height:90%;
+    border-radius:15%;
+    margin-top: 5%;
+}
+
+.festivalOfferContainer{
+    width:95%;
+}
+
+.festivalOfferImage{
+    width:100%;
+    height:100%;
+}
+
+.sendCakesHeading{
+    width:95%;
+    color:#690009;
+    font-size: 20%;
+    font-weight: 500;
+    text-align: left;
+}
+
+.sendCakesContainer{
+    width:100%;
+    background-color: #ffffff;
+}
+
+.sendCakesContainer1{
+    height:50%;
+    width:100%;
+}
+
+.categoryName{
+    color:#4d4d4d;
+    font-size: 12%;
+    font-weight:500;
+    text-align: center;
+}
+
+.sendCakesContainer11{
+    width:30%;
+    height:80%;
+    background-color: #ffffff;
+    border-radius: 10;
+}
+
+.topTrendyContainer11{
+    width:23%;
+    height:70%;
+    background-color: #ffffff;
+    border-radius: 10;
+}
+
+.sendCakesImage{
+    width:100%;
+    border-radius:15%;
+}
+
+.sendCakesName{
+    font-size: 12%;
+    color:#4d4d4d;
+    font-weight: bold;
+    text-align: center;
+}
+
+.viewAll{
+    width:17%;
+    horizontal-alignment:right;
+    background-color: #690009;
+    margin-right: 2%;
+    color:#ffffff;
+    font-size: 10%;
+    border-radius: 5;
+    padding: 0;
+}
+
+.giftContainer{
+    width:95%;
+}
+
+.gift{
+    width:50%;
+    height:100%;
+}
+
+.giftImage{
+    width:90%;
+    height:90%;
+    border-radius:15%;
+    background-color: white;
+}
+
+.occassionHeadingContainer{
+    width:95%;
+    vertical-align: middle;
+}
+
+.occassionHeading{
+    width:100%;
+    color:#690009;
+    font-size: 20%;
+    font-weight: 500;
+    text-align: left;
+}
+
+.occassionContainer{
+    width:95%;
+}
+
+.occassion{
+    height:90%;
+    width:30%;
+    border-radius:15%;
+    background-color: white;
+}
+
+.occassionImage{
+    width:90%;
+    height:80%;
+}
+
+.occassionName{
+    width:90%;
+    text-align: center;
+    font-size: 12%;
+    font-weight: bold;
+    color:#4d4d4d;
+}
+
+.view-button{
+    font-size: 18%;
+    border-radius: 100;
+    background: linear-gradient(345deg,#8BDE22,#23A6DB);
+    text-transform: initial;
+    color:white;
+    border-color: white;
+    border-width:1;
+    padding:0;
+    height:70%;
+    width:50%;
+}
+.view-button:highlighted{
+    background-color: white;
+    border-color: #273BD3;
+    color: #273BD3;
+}
+
+.findPerfectGift{
+    width:95%;
+    background-color: #ffffff;
+}
+
+.findPerfectGift1{
+    height:100%;
+    width:20%;
+    background-color: #f1f1f1;
+}
+
+.findPerfectGift11{
+    width:80%;
+}
+
+.findPerfectGift2{
+    width: 60%;
+    margin-left: 5%;
+    vertical-align: middle;
+}
+
+.findPerfectGift21{
+    font-size: 14%;
+    font-weight: bold;
+    color:#690009;
+}
+
+.findPerfectGift22{
+    font-size: 12%;
+    font-weight: 500;
+    color:#d4d4d4;
+}
+
+.findPerfectGift3{
+    width:10%;
+    margin-left: 5%;
+}
+
+.findPerfectGift31{
+    width:50%;
+}

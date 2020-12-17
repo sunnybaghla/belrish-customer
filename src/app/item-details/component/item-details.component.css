@@ -1,0 +1,129 @@
+.mains
+{
+    background: whitesmoke;
+    
+}
+.imgGrid
+{
+    background: whitesmoke;
+    background-color: whitesmoke;
+    
+}
+.sell
+{
+    font-family: 'Bangers', cursive;
+    font-family: 'Quicksand', sans-serif;;
+}
+.details
+{
+
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10%;
+    
+    
+}
+.img
+{
+    background: whitesmoke;
+    background-color: whitesmoke;
+    height: 80%;
+    color: whitesmoke;
+}
+.recGrid
+{
+    border:whitesmoke;
+    border-width: 0.0001;
+    /* color: transparent; */
+    
+}
+.mainHeading
+{
+    background:white;
+    
+    width: 100%;
+    padding-left: 10%;
+
+}
+.list{
+    padding-left: 5%;
+}
+.delSer
+{
+    color: gray;
+}
+.temp
+{
+    width:15%;
+}
+.proHigh
+{
+    /* width: 25pt; */
+    padding-top: 10%;
+    padding-bottom: 10%;
+    
+    
+}
+.meg
+{
+    padding-top: 10%;
+}
+.btn
+{
+    height: 100%;
+    width: 100%;
+}
+.bagbtn
+{
+    background:rgb(220,20,60);
+}
+.pro
+{
+    text-align: center;
+        padding-top: 5%;
+        font-size: large;
+        color: gray;
+    /* margin-left: 50%; */
+}
+.btnwish
+{
+    background: white;
+}
+.delivery
+{
+    background: white;
+    padding-left: 10%;
+    padding-top: 7%;
+    color: black;
+    font-weight: 900;
+}
+.messge
+{
+    background: whitesmoke;
+}
+.btnSize
+{
+    background: white;
+    border-color:black;
+    border-width: 2px;
+    border-radius: 60%;
+    margin-top: 2%;
+    /* margin-left: 10%; */
+    padding-left: 2%;
+    padding-bottom: 10;
+    color: gainsboro;
+    
+    
+}
+.Selected{
+    background: white;
+    border-color:red;
+    border-width: 2px;
+    border-radius: 60%;
+    margin-top: 2%;
+    /* margin-left: 10%; */
+    padding-left: 2%;
+    padding-bottom: 10;
+    color: blue;
+
+}

@@ -1,0 +1,37 @@
+<GridLayout class="page">
+  <StackLayout class="gift-image-container">
+    <Image class="gift-image" src="~/assets/images/gift_one.png"></Image>
+  </StackLayout>
+  <GridLayout class="main-container" rows="auto,auto,auto,auto,auto,auto">
+    <GridLayout row="0" columns="auto,auto" class="header-container">
+      <StackLayout col="0" class="back-icon-container">
+        <Image class="back-icon" [src]="backIcon"></Image>
+      </StackLayout>
+      <StackLayout col="1" class="heading-label-container">
+        <Label [text]="headingLabel" class="heading-label"></Label>
+      </StackLayout>
+    </GridLayout>
+    <StackLayout row="1" class="title-container">
+      <Label class="title" [text]="title+' '+mobno" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout row="2" orientation="Horizontal" class="textfield-container">
+      <TextField #textfield1 maxlength='1' (textChange)="onFocus1($event)" keyboardType="phone" class="text-field">
+      </TextField>
+      <TextField #textfield2 maxlength='1' (textChange)="onFocus2($event)" keyboardType="phone" class="text-field">
+      </TextField>
+      <TextField #textfield3 maxlength='1' (textChange)="onFocus3($event)" keyboardType="phone" class="text-field">
+      </TextField>
+      <TextField #textfield4 maxlength='1' (textChange)="onFocus4($event)" keyboardType="phone" class="text-field">
+      </TextField>
+    </StackLayout>
+    <GridLayout row="3" class="expiry-time-container" columns="auto,*">
+      <Label col="0" class="timer" [text]="expirytime"></Label>
+      <StackLayout col="1" class="resend-otp-container" orientation="horizontal">
+        <Label class="resend-otp" [text]="resendOtp" color="#ffffff"></Label>
+        <Label class="resend-otp" text=" Resend" color="#a5005f"></Label>
+      </StackLayout>
+    </GridLayout>
+    <Button row="4" class="verify-button" (tap)="onVerify()" text="Verify"></Button>
+    <label row="5" class="edit-phone" [text]="editPhone" (tap)="onEditPhone()"></label>
+  </GridLayout>
+</GridLayout>

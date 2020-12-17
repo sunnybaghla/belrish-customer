@@ -1,0 +1,59 @@
+<page height="100%" width="100%" style="background-color: #fbfbfb">
+  <StackLayout height="100%" width="100%">
+    <ListView [items]="ordersArr">
+      <ng-template let-item="item" let-y="index">
+        <!-- <FlexboxLayout flexDirection="row"> -->
+          <StackLayout>
+            <CardView elevation='4' marginTop='10' ripple='true' height="30" width="95%" backgroundColor="#bb56d3">
+              <GridLayout columns="*,auto">
+                <Label col='0' [text]="'#'+item.orderId"
+                  style="vertical-align: middle; margin-left: 5;color:#fbfbfb"></Label>
+                <Label col='1' text=" View detail"
+                  style="vertical-align: middle;color: #fbfbfb; margin-right:5"></Label>
+              </GridLayout>
+            </CardView>
+            <!-- <ListView [items]="item.orderIdData">
+              <ng-template let-i="index" let-item="item">
+                <StackLayout>
+                  <CardView elevation='6' marginTop='10' marginBottom='5' ripple="true" width="95%">
+                    <GridLayout rows="3*,*" style="margin: 0 5 0 5">
+                      <GridLayout row="0" columns="3*,*">
+                        <GridLayout col="0" rows="2*,*,*">
+                          <label row="0" [text]="item.itemName" color="black" class="orderCardName"
+                            fontSize="16"></label>
+                          <StackLayout row="1" orientation="Horizontal">
+                            <label [text]="item.type.option"></label>
+                            <label [text]="': '+item.type.optionValue"></label>
+                          </StackLayout>
+                          <label row="2" [text]="getTag(item.tag)"></label>
+                        </GridLayout>
+                        <Image
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTeaNLuob5AcUX32y12x_jpBmETf5p3WqDp_yumXoV75oo0uKZP"
+                          stretch="aspectfill" col="1" height="80" marginTop='4'></Image>
+                      </GridLayout>
+                      <StackLayout row="1" orientation="Horizontal">
+                        <Button text="Button"
+                          style="width:13;height:13;border-radius:100;background-color:green"></Button>
+                        <ng-container *ngIf="item.status === 0; then zero; else one"></ng-container>
+                        <ng-template #zero>
+                          <label text=" Excepted Delivery" style="vertical-align: middle;color: green;"
+                            marginBottom='4'></label>
+                        </ng-template>
+                        <ng-template #one>
+                          <label text=" Item is Deliverd On " style="vertical-align: middle;color: green;"
+                            marginBottom='4'></label>
+                        </ng-template>
+                      </StackLayout>
+                    </GridLayout>
+                  </CardView>
+                </StackLayout>
+              </ng-template>
+            </ListView> -->
+          </StackLayout>
+        <!-- </FlexboxLayout> -->
+      </ng-template>
+    </ListView>
+    <label [text]="ii"></label>
+    <label [text]="yy"></label>
+  </StackLayout>
+</page>

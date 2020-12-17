@@ -1,0 +1,58 @@
+<GridLayout class="page" rows="auto,auto,auto,*">
+  <GridLayout row="0" class="header-container" rows="auto,auto">
+    <GridLayout row="0" height="auto" width="100%" marginTop="10" columns="auto,auto">
+      <StackLayout col="0" class="back-icon-container" (tap)="onBack()">
+        <Image class="back-icon" [src]="backIcon"></Image>
+      </StackLayout>
+      <StackLayout col="1" class="main-heading-container">
+        <Label class="main-heading" [text]="mainHeading"></Label>
+      </StackLayout>
+    </GridLayout>
+    <StackLayout row="1" width="95%" height="auto" marginTop="10" marginBottom="5" verticalAlignment="middle">
+      <Label text="Select your Address preference for ''MY APP NAME'' Delivery" textWrap="true" fontSize="16%"
+        color="#ffffff" textAlignment="center"></Label>
+    </StackLayout>
+  </GridLayout>
+
+  <StackLayout row="1" height="auto" width="95%" orientation="vertical" marginTop="10">
+    <Label text="TAP CARD TO VIEW DETAILS" fontSize="14%" color="#000000" fontWeight="300"></Label>
+    <Label text="LONG TAP CARD TO DELETE" fontSize="14%" color="#000000" fontWeight="300"></Label>
+  </StackLayout>
+
+  <GridLayout row="2" columns="*,auto" height="auto" width="95%" orientation="horizontal" marginTop="10">
+    <Label col="0" verticalAlignment="middle" text="Your Address" fontSize="18%" color="#000000"
+      fontWeight="500"></Label>
+    <StackLayout col="1" height="40" width="40" backgroundColor="#953598" borderRadius="10" verticalAlignment="middle" (tap)="onAddAddress()">
+      <Image src="res://plus" width="50%"></Image>
+    </StackLayout>
+  </GridLayout>
+
+  <ListView class="addresses-list" separatorColor="transparent" row="3" [items]="addressList">
+    <StackLayout>
+      <ng-template let-item="item" let-i="index">
+        <GridLayout height="auto" width="100%" columns="auto,auto">
+          <StackLayout col="0" width="10%" height="100%" verticalAlignment="middle">
+            <Image [src]="selectedAddress==i?'res://checkbox_select':'res://checkbox_unselect'" height="30"
+              (tap)="selectAddress(i)"></Image>
+          </StackLayout>
+          <GridLayout col="1" class="addresses-container" rows="auto,auto,auto" (tap)="onAddressClick()"
+            (longPress)="onAddressLongPress()">
+            <StackLayout row="0" class="address-icon-container" orientation="horizontal">
+              <Image class="address-icon" [src]="addressIcon"></Image>
+              <Label class="address-name" [text]=item.name></Label>
+            </StackLayout>
+            <StackLayout row="1" class="address-name-container" orientation="horizontal">
+              <Label class="address-location" textWrap="true" [text]=item.location></Label>
+            </StackLayout>
+            <StackLayout row="2" class="address-name-container" orientation="horizontal">
+              <Label class="address-phone" textWrap="true" [text]=item.phone></Label>
+            </StackLayout>
+          </GridLayout>
+        </GridLayout>
+      </ng-template>
+    </StackLayout>
+  </ListView>
+  <!-- <StackLayout row="4" class="address-button-container">
+    <Button class="address-button" [text]="addAddressButton" (tap)="onAddAddressButton()"></Button>
+  </StackLayout> -->
+</GridLayout>

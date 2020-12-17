@@ -1,0 +1,57 @@
+<StackLayout>
+    <label class="lbl" [text]="ptv"></label>
+<GridLayout tkExampleTitle tkToggleNavButton height='90%' width="100%">
+    <RadListView [items]="itemsArray" itemLoading="onItemLoading">
+        
+        <ListViewStaggeredLayout tkListViewLayout scrollDirection="Vertical" >
+        </ListViewStaggeredLayout>
+        <ng-template tkListItemTemplate let-item="item" let-i="index">
+            <StackLayout orientation="vertical" class="mains"  >
+                         <StackLayout *ngIf="i===2" width="100%">
+                         <GridLayout class="ItemImg">
+
+                         </GridLayout>
+                            </StackLayout>
+
+            <GridLayout rows="*" columns="*" height="50%" marginLeft='0' marginTop='0'>
+                   
+
+                <Image stretch="aspectFit" row="0" col="0" [src]="item.itemImgSrc" class="img" ></Image>
+                <Image  row="0" col="0" [src]="item.itemImgSrc" class="trend"></Image>
+
+            </GridLayout>
+           
+            <Stacklayout height="80pt" orientation="vertical">
+                <StackLayout oreintation="horzontal">
+                    <Label  [text]="item.name" class="name"></Label>
+                    <label [text]="item.title" class="title" ></label>
+                </StackLayout>
+
+             <StackLayout orientation="vertical">
+                <StackLayout *ngIf="item.MRP ===item.SellPrice; then contentTemplate else threetemp">
+
+                 </StackLayout>
+                <ng-template #contentTemplate>
+                                <label [text]="'₹'+ item.SellPrice"  class="sell" color="black" ></label>
+                </ng-template>
+                <ng-template #threetemp>
+                            <StackLayout orientation="horizontal">
+                                
+                                <label [text]="'₹' +item.SellPrice"  class="sell"  color="black" ></label>
+                                <label [text]="'₹'+ item.MRP"  class="mrp" textDecoration="line-through" ></label>
+                                <label [text]="show(i)"  class="off"></label>
+                            </StackLayout>
+                            
+                 </ng-template>
+                </StackLayout>
+            </Stacklayout>
+         </StackLayout>
+
+
+
+
+        </ng-template>
+
+    </RadListView>
+</GridLayout>
+</StackLayout>

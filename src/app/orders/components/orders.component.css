@@ -1,0 +1,11 @@
+.orderCardName
+{
+    /* text-align: justify; */
+    vertical-align: middle;
+    letter-spacing: 0.1;
+
+}
+ListView
+{
+    separator-color: white; 
+}

@@ -1,0 +1,40 @@
+.couponImage
+{
+    text-align: center;
+    vertical-align: middle;
+    color: green;
+    font-size: 23;
+    
+}
+.couponUpperBlock
+{
+        border-color: lightgray;
+        border-width: 3px;
+
+}
+.couponsBlockImage
+{
+    border-right-width: 3px;
+    border-color: lightgray;
+}
+.couponsContent
+{
+    vertical-align: middle;
+    text-align: center;
+}
+ListView 
+ {
+      separator-color: white; 
+    }
+.couponCode
+{
+    vertical-align: bottom;
+}
+.couponsBlockBottom
+{
+    vertical-align: middle;
+    margin: 5;
+    font-size: 12;
+    
+
+}

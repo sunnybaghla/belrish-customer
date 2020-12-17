@@ -1,0 +1,104 @@
+ .img
+{
+
+         height: 100%; ;
+         /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+        
+}
+.name
+{
+    color: black;
+    margin-left: 7%;
+    /* font-style: initial; */
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-size: 14pt;
+    letter-spacing: 0px;
+    /* /* font-family:  'San Francisco'; */
+    font-weight: 200; 
+    margin-top: 5%;
+    
+    
+
+
+    
+
+
+}
+.ItemImg
+{
+    height: 60pt;
+    width: 100%;
+    background-color: blue;
+}
+.trend
+{
+    position: absolute;
+      top: 10px;
+      left: 0px;
+    height: 20pt;
+    width: 50pt;
+    
+    
+    /* position: absolute; */
+    
+    
+}
+.sell
+{
+        margin-left: 7%;
+        font-size: 14pt;
+        margin-top: 5%;
+        letter-spacing: 0pt;
+        letter-spacing: 0px;
+        white-space: nowrap;
+    
+    /* font-style: oblique; */
+    /* font-weight: 100; */
+    font-family:  Roboto San Francisco;
+}
+.off
+{
+    font-size: 12pt;
+    color: red;
+    margin-top: 6%;
+    margin-left: 10pt;
+}
+.mrp
+{
+    /* padding-left: -35pt; */
+    margin-left: 6%;
+    margin-top: 5%;
+    font-size: 12pt;
+}
+.title
+{
+    color: grey;
+    margin-left: 7%;
+    margin-top: 3%;
+    font-size: 12pt;
+    
+    font-family: monospace;
+    border: 3px solid;
+    /* font-style: inherit; */
+    font-weight: 1000;
+}
+.mains
+{
+    /* height: 100%; */
+    /* width: 100%;
+    border-top-width: 0.00001;
+    border-top-color: grey; */
+    
+    border-left-color: gray;
+    border-left-width: 0.000001;
+    border-top-width: 0.000001;
+    /* margin-left: 2%; */
+    /* margin-right: 2%;
+    margin-top: 2%; */
+
+}
+.lbl
+{
+    background-image: linear-gradient(160deg, #7F00FF,#E100FF);
+    height: 5%;
+}

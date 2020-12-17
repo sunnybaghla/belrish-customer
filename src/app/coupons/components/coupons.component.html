@@ -1,0 +1,39 @@
+<StackLayout backgroundColor="whitesmoke" height="auto">
+  <StackLayout height="auto">
+    <ListView [items]="couponDetail">
+            <ng-template let-i="i" let-item="item">
+          <StackLayout height="auto">
+            <CardView elevation='10' margin='5' ripple="true">
+              <GridLayout rows="3*,2*" margin='5' marginTop='10'>
+                <GridLayout row="0" columns="*,3*" class="couponUpperBlock">
+                  <Image col='0' class="couponsBlockImage"
+                    src='https://image.freepik.com/free-vector/light-pink-heart-pattern_53876-67660.jpg' stretch="fill">
+                  </Image>
+                  <label col='0' [text]="item.dis +'%'+ '  OFF'" textWrap="true" class="couponImage"></label>
+                  <GridLayout rows="*,2*" col='1' class="couponsContent">
+                    <StackLayout row='0' orientation="Horizontal">
+                      <label text="On minimm purchase of" marginLeft='10'></label>
+                      <label [text]=" ' ₹'+ item.minPurchase" color="black"></label>
+                    </StackLayout>
+                    <StackLayout row='1' orientation="Horizontal" class="couponCode">
+                      <label text="Code: " margin='10'></label>
+                      <label [text]="item.code" color="black" marginTop='10'></label>
+                    </StackLayout>
+                  </GridLayout>
+                </GridLayout>
+                <StackLayout row='1' class="couponsBlockBottom">
+                  <label [text]="'Expiry: ' +  item.exp"></label>
+                  <StackLayout orientation="Horizontal">
+                    <label [text]="item.dis +  '% OFF'" color="black"></label>
+                    <label [text]="' on minimum purchase of  ₹'+ item.minPurchase"></label>
+                  </StackLayout>
+                  <label [text]="'Max Disount ₹' + item.maxDiscount"></label>
+                </StackLayout>
+              </GridLayout>
+            </CardView>
+          </StackLayout>
+        </ng-template>
+      
+    </ListView>
+  </StackLayout>
+</StackLayout>

@@ -1,0 +1,162 @@
+<page  height="100%" width="100%">
+  <StackLayout height="100%" width="100%">
+  <StackLayout class="mains" height="90%" width="100%" oreintation="vertical">
+    <ScrollView>
+      <StackLayout oreintation="vertical">
+
+      
+  <!-- <StackLayout *ngIf="fullView" height="100" width="80">
+<Image src="https://img.icons8.com/cotton/2x/cancel--v2.png" marginTop="10" marginLeft="80" height="30" width="30" (tap)="onNotFullView()"></Image>
+<Image [src]="imgArray[fullViewImg].imageurl" marginTop='20'></Image> -->
+
+  <!-- </StackLayout>
+<label *ngIf="remainImg>'0'" [text]="'Please Enter the '+ remainImg +' image'"></label>
+<Image *ngIf="remainImg>'0'" (tap)="uploadFromgallery()" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST4fkrTZwAP-46L8pDOYYkpMbZOvRt9Xm-s-gQKqQyNOYhkI-11A&s" stretch="aspectFill" width="100" height="100"></Image>
+<StackLayout height="50">
+<ListView [items]="imgArray" height="400" width="400">
+  <ListViewStaggeredLayout tkListViewLayout scrollDirection="Vertical" >
+  </ListViewStaggeredLayout>
+
+  <ng-template let-item="item" let-i="index">
+  
+
+        <StackLayout>  
+           <image *ngIf="checkTotalImg(i)"
+      margin="20"
+      [src]="item.imageurl" 
+      
+      stretch="aspectFill" width="250" height="200" (tap)="OnfullView(i)"
+    ></image>
+    <Image (tap)="onEdit(i)" src="http://www.clker.com/cliparts/H/5/5/w/s/Q/edit-button-blue-hi.png" stretch="fill"  height="40" width="70" ></Image>
+    
+
+
+
+
+  </StackLayout>
+  </ng-template>
+</ListView>
+</StackLayout> -->
+<!-- <StackLayout height="50"> -->
+  
+  <StackLayout height="200">
+      <Image  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSqjmb4oURjwsDoK6TwiZtALebX7mX6fG7Rr92OGXUZAADmTzNkQ&s"></Image>
+    </StackLayout>
+    <StackLayout *ngIf="checkError()" height="30" class="textfields">
+        <label [text]="msg" color="red" fontSize='14'></label>
+    </StackLayout>
+
+
+      <StackLayout *ngIf="chkTxt()" [height]="ht" class="textfields">
+<ListView [items]="imageDetails[0].totalTextField" margin="3" >
+  <ng-template let-i="index" let-item="item">
+    <StackLayout  height="100">
+      <GridLayout columns="auto,auto">
+        <label col="0" [text]="item.heading"  ></label>
+         <label col="1" [text]="'  ( Max Length '+ item.maxcount + ' )'" ></label> 
+        </GridLayout> 
+        <TextField [maxLength]="item.maxcount" #tt (textChange)="txtFldInput(tt.text,i)" ></TextField>
+      </StackLayout>
+  </ng-template>
+  
+
+</ListView>
+<!-- <label text="hello"></label> -->
+
+</StackLayout> 
+
+<StackLayout *ngIf="chkListInput()" height="100"  class="textfields"
+                  marginTop='3'>
+                  <Label [text]="imageDetails[0].totalListPicker[0].heading" marginTop='5' marginLeft='10'></Label>
+                  <RadListView [items]="imageDetails[0].totalListPicker[0].values">
+                      <ListViewLinearLayout tkListViewLayout
+                          scrollDirection="Horizontal">
+                      </ListViewLinearLayout>
+                      <ng-template let-item="item" let-i="index">
+                          <StackLayout>
+                              <GridLayout marginTop='10' marginBottom='10'>
+                                  <button [text]="item"
+                                      [class.Selected]="i===default"
+                                      class="btnSize" marginLeft='10' textWrap="True"
+                                      (tap)="pricecount(i)" height="50"></button>
+                              </GridLayout>
+                          </StackLayout>
+                      </ng-template>
+                  </RadListView>
+              </StackLayout>
+
+
+
+
+
+
+
+<!-- <StackLayout height="70%" class="textfields">
+  <ListView [items]="imageDetails[0].totalListPicker" marginTop="5">
+    <StackLayout height="100%">
+    <ng-template let-i="index" let-item="item">
+      <StackLayout marginTop="5" height="200">
+          
+          <ListPicker [items]="item.values" width="40%"></ListPicker>
+        </StackLayout>
+    </ng-template>
+    
+  </StackLayout>
+  </ListView>
+  
+  
+  </StackLayout>  -->
+
+    <StackLayout height="100%" *ngIf="fullView"   backgroundColor="gray" >
+  <Image src="https://img.icons8.com/cotton/2x/cancel--v2.png" marginTop="10" marginLeft="80" height="20" width="20" (tap)="onNotFullView()"></Image>
+  <Image [src]="imgArray[fullViewImg]" marginTop='20' height="60"></Image> 
+    </StackLayout>
+
+
+
+
+  <StackLayout *ngIf="chkImgGird()"  class="mainHeading" color="black" height="30%"  class="textfields">
+      
+      <StackLayout tkExampleTitle tkToggleNavButton  *ngIf="checkUpload()">
+      <RadListView [items]="imgArray"  >
+          <ListViewLinearLayout tkListViewLayout
+              scrollDirection="Horizontal">
+          </ListViewLinearLayout>
+          <ng-template let-item="item" let-i="index">
+              <StackLayout class="imgDesign" >
+                  <!-- <GridLayout rows="*,*" class="proHigh"> -->
+                  <Image [src]="item" height="200" width='200'    (tap)="OnfullView(i)" class="img"></Image>
+                  <Image (tap)="onEdit(i)" src="http://www.clker.com/cliparts/H/5/5/w/s/Q/edit-button-blue-hi.png" stretch="fill"  height="40" width="70" ></Image>
+                  <!-- </GridLayout> -->
+                  <!-- <Image 
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST4fkrTZwAP-46L8pDOYYkpMbZOvRt9Xm-s-gQKqQyNOYhkI-11A&s"
+                    stretch="aspectFill" width="100" height="80"></Image>  -->
+                  
+              </StackLayout>
+          </ng-template>
+
+      </RadListView>
+
+      </StackLayout>
+      <label *ngIf="remainImg>'0'"
+        [text]="'Please Upload the '+ remainImg +' image'" marginLeft='10' color="red" marginTop=20></label>
+      <Image *ngIf="remainImg>'0'" (tap)="uploadFromgallery()" marginTop="20" height="100" width="100"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST4fkrTZwAP-46L8pDOYYkpMbZOvRt9Xm-s-gQKqQyNOYhkI-11A&s"
+        stretch="aspectFill"  ></Image>
+ 
+
+  </StackLayout>
+  <StackLayout height="20%" class="textfields">
+      <label [text]="desctImg" textWrap="True" class="desc"></label>
+  </StackLayout>
+
+      </StackLayout> 
+</ScrollView>
+
+</StackLayout>
+
+<button text="Proess" (tap)="checkForm()"  class="btn" height="10%" width="100%" color="white" backgroundColor="red"></button>
+</StackLayout>
+
+
+</page>

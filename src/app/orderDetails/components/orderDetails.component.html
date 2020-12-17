@@ -1,0 +1,91 @@
+<StackLayout>
+  <StackLayout height="auto" marginLeft='8' >
+    <StackLayout orientation="Horizontal">
+      <label text="Placed On: "></label>
+      <label text="29 jul 2017" color="black"></label>
+    </StackLayout>
+    <StackLayout orientation="Horizontal" height="auto">
+      <label text="Order No: "></label>
+      <label text="46456 4 56 45 54 56" color="black"></label>
+    </StackLayout>
+    <StackLayout height="120" marginLeft='4' >
+      <label text="Price Details"></label>
+    
+
+      <GridLayout columns='*,*,*' rows="*,*,*,*,*" marginLeft='4' style="text-align: right;"> 
+        <label col="0" row="0" text="MRP" ></label>
+        <label col="0" row="1" text="GST"></label>
+        <label col="0" row="2" text="Coupon Discount"></label>
+        <label col="0" row="3" text="Ite Discount"></label>
+        <label col="1"  row="0" text="123" ></label>
+        <label col="1" row="1" text="523"></label>
+        <label col="1" row="2" text="444"></label>
+        <label col="1" row="3" text="2222"></label>
+        
+          
+        <label col="0" row="4" text="Total" class="CartTotal"></label>
+        <label col="1" row="4" text="11222" class="CartTotal"></label>
+        
+          </GridLayout>
+              </StackLayout>      
+    <StackLayout orientation="Horizontal">
+      <label text="Total"></label>
+      <label text="13"></label>
+    </StackLayout>
+      <StackLayout height="auto" style="border-color: gray;border-top-width: 1px;">
+        <label text="updates Send to" marginBottom='8'></label>
+        <label text="9988234477" marginLeft='4' color='black'></label>
+        <label text="sunnybaghka@rocketmail.com" color='black' marginLeft='4' marginBottom='8'></label>
+      </StackLayout>
+      <StackLayout height="auto" style="border-top-width: 1px;border-color: gray;">
+        <label text="Shipping Adress" marginBottom='8' marginTop='2'></label>
+        <label text="Sunnbaghla" marginLeft='4' color='black'></label>
+        <label text="a af o afnfnf aonf ifdnfnj" color='black' marginLeft='4' marginBottom='8'></label>
+      </StackLayout>
+      <StackLayout style="background-color:lightgray;height: 30;color: black;font-size: 16;">
+        <label text="Item in this Cart"></label>
+      </StackLayout>
+      <StackLayout height="auto">
+        <ListView [items]="ordersArr[0].orderIdData">
+          <ng-template let-i="index" let-item="item">
+            <StackLayout height="220">
+              <CardView elevation='6' marginTop='5' marginBottom='5' ripple="true">
+                <StackLayout>
+                  <GridLayout rows="3*,*">
+                    <GridLayout row="0" columns="3*,*">
+                      <GridLayout col="0" rows="2*,*,*">
+                        <label row="0" [text]="item.itemName" color="black" class="orderCardName"
+                          fontSize="16"></label>
+                        <StackLayout row="1" orientation="Horizontal">
+                          <label [text]="item.type.option"></label>
+                          <label [text]="': '+item.type.optionValue"></label>
+                        </StackLayout>
+                        <label row="2" [text]="getTag(item.tag)"></label>
+                      </GridLayout>
+                      <Image
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTeaNLuob5AcUX32y12x_jpBmETf5p3WqDp_yumXoV75oo0uKZP"
+                        stretch="aspectfill" col="1" height="80" marginTop='4'></Image>
+                    </GridLayout>
+                    <StackLayout row="1" orientation="Horizontal">
+                      <Button text="Button"
+                        style="width:13;height:13;border-radius:100;background-color:green"></Button>
+                      <ng-container *ngIf="item.status === 0; then zero; else one"></ng-container>
+                      <ng-template #zero>
+                        <label text=" Excepted Delivery" style="vertical-align: middle;color: green;"
+                          marginBottom='4'></label>
+                      </ng-template>
+                      <ng-template #one>
+                        <label text=" Item is Deliverd On " style="vertical-align: middle;color: green;"
+                          marginBottom='4'></label>
+                      </ng-template>
+                    </StackLayout>
+                  </GridLayout>
+                </StackLayout>
+              </CardView>
+            </StackLayout>
+          </ng-template>
+        </ListView>
+      </StackLayout>
+    
+  </StackLayout>
+</StackLayout>

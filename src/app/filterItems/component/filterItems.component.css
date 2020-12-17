@@ -1,0 +1,74 @@
+.filterNames
+{
+    color: black;
+    font-size:16pt;
+    background:rgb(248,248,248);
+    
+}
+.filterNames2
+{
+    height: 45pt;
+    /* border-right-width: 0.00001pc; */
+
+    
+
+
+}
+.tick
+{
+    color:lightgray;
+    margin-left: 12%;
+        margin-top: 25%;
+}
+.FilterGird
+{
+    height: 45pt;
+    /* border-width: 0.0000001cm; */
+    /* border-bottom-color: whitesmoke; */
+}
+.filterItem
+{
+    text-align: left;
+    margin-top: 25%;
+    
+    
+}
+.filterItemsQuan
+{
+    margin-left: 9%;
+    margin-top: 25%;
+}
+.filterNameText
+{   
+padding-top: 12%;
+    /* text-align: center;
+    vertical-align: center; */
+    align-items: center;
+    /* margin-left: 5%; */
+    padding-left: 10%;
+}
+.Selected{
+            background: white;
+            color: black;
+            font-size: 15px;
+            font-style: italic;
+}
+.tickSelected
+{
+    color:red;
+}
+.buttons
+{
+    background: white;
+    border-color: white;
+}
+.btn
+{
+    background: white;
+    width: 50%;
+    height: 100%;
+    border-width: 5px;
+    border-color: white;
+    margin: 0px;
+    font-size: 13px;
+}

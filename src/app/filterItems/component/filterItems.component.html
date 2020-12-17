@@ -1,0 +1,47 @@
+<StackLayout >
+<GridLayout rows="*"  columns="3*,6*" height="90%"> 
+  <StackLayout row="0" col="0" class="filterNames">
+
+        <RadListView [items]="filterArr" SelectionBehavior="Press" >
+          <ng-template let-item="item" let-i="index">
+              <GridLayout class="filterNames2">
+                <label [text]="item.filterName" [class.Selected]="i===selectedIndex" class="filterNameText"  (tap)="selectMenu(i)" ></label>
+              </GridLayout>
+            
+         </ng-template>
+          
+        </RadListView>
+    </StackLayout>
+      <GridLayout row="0" col="1">
+            <RadListView [items]="filterArr[selectedIndex].data" (itemSelected)="onItemSelected()" selectionBehavior="Press" multipleSelection="true">
+                <ng-template let-item="item" let-i="index">
+                  <StackLayout  >
+                      <GridLayout rows="*" columns="*,2*,*" class="FilterGird" (tap)="Ontap(item.code)">
+                        <label  row="0" col="0" [class.tickSelected]="get(item.code)" text="✓" class="tick" ></label>
+                        <label row="0" col="1" [text]="item.name" class="filterItem"></label>
+                        <label row="0" col="2" text="5" class="filterItemsQuan"></label>
+                      </GridLayout>
+                    </StackLayout>
+                </ng-template>
+                
+            </RadListView>
+      </GridLayout>
+
+
+
+</GridLayout >
+<!-- <ListView [items]="filterName">
+  <ng-template let-i="index" let-item="item">
+    <StackLayout>
+      <label [text]="item"></label>
+      
+    </StackLayout>
+  </ng-template>
+  
+</ListView> --> -->
+<StackLayout width="100%"  class="buttons" orientation="horizontal">
+  <button width="50%" text="CLOSE" class="btn" (tap)="onClose()" color="black"></button>
+  <button width="50%" col="1" text="APPLY" class="btn" color="red" (tap)="onApply()"></button>
+
+</StackLayout>
+</StackLayout>
