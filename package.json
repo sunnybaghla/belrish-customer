@@ -17,6 +17,7 @@
     "@angular/common": "8.0.0",
     "@angular/compiler": "8.0.0",
     "@angular/core": "^8.0.0",
+    "@angular/fire": "^6.1.4",
     "@angular/forms": "8.0.0",
     "@angular/http": "8.0.0-beta.10",
     "@angular/platform-browser": "8.0.0",
@@ -44,7 +45,7 @@
     "nativescript-ui-listview": "^8.2.0",
     "nativescript-videoplayer": "^4.2.1",
     "reflect-metadata": "~0.1.12",
-    "rxjs": "~6.5.0",
+    "rxjs": "^6.5.5",
     "tns-core-modules": "~6.3.0",
     "tns-platform-declarations": "^6.0.1",
     "zone.js": "~0.9.1"

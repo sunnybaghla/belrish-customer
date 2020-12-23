@@ -16,29 +16,29 @@ declare const CGSizeMake: any;
 
 export class FooterComponent implements OnInit {
     homeIcon: string;
-    profileIcon: string;
+    categoryIcon: string;
     searchIcon: string;
-    menuIcon: string;
-    cartIcon: string;
+    accountIcon: string;
+    helpIcon: string;
     isHomeHighlighted: string;
-    isProfileHighlighted: string;
+    isCategoryHighlighted: string;
     isSearchHighlighted: string;
-    isMenuHighlighted: string;
-    isCartHighlighted: string;
+    isHelpHighlighted: string;
+    isAccountHighlighted: string;
     RouterExtensions: any;
     constructor(private http: HttpClient, private page: Page, private routerExtensions: RouterExtensions) {
         this.page.actionBarHidden = true;
 
-        this.homeIcon = "res://home_inactive";
-        this.profileIcon = "res://user_inactive";
+        this.homeIcon = "res://home";
+        this.categoryIcon = "res://category";
         this.searchIcon = "res://search_inactive";
-        this.menuIcon = "res://menu_inactive";
-        this.cartIcon = "res://cart_inactive";
+        this.helpIcon = "res://help";
+        this.accountIcon = "res://account";
         this.isHomeHighlighted = "hidden";
-        this.isProfileHighlighted = "hidden";
+        this.isCategoryHighlighted = "hidden";
         this.isSearchHighlighted = "hidden";
-        this.isMenuHighlighted = "hidden";
-        this.isCartHighlighted = "hidden";
+        this.isHelpHighlighted = "hidden";
+        this.isAccountHighlighted = "hidden";
 
         // this.userService.activescreen.subscribe((screen: string) => {
         //     if (screen == "home" || screen == "products" || screen == "categories" || screen == "addProduct" || screen == "addCategory" || screen == "addSlider" || screen == "addOffer") {
@@ -80,7 +80,7 @@ export class FooterComponent implements OnInit {
         this.routerExtensions.navigate(['/home']);
     }
 
-    onProfileClick() {
+    onCategoryClick() {
         // this.routerExtensions.navigate(['/profile']);
         alert("profile clicked");
     }
@@ -90,12 +90,12 @@ export class FooterComponent implements OnInit {
         alert("search clicked");
     }
 
-    onMenuClick() {
+    onHelpClick() {
         // this.routerExtensions.navigate(['/menu']);
         alert("menu clicked");
     }
 
-    onCartClick() {
+    onAccountClick() {
         // this.routerExtensions.navigate(['/cart']);
         alert("cart clicked");
     }

@@ -1,8 +1,12 @@
+import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { ScreenDimensions } from './../../shared/ScreenDimensions';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { OnInit, Component, AfterContentInit } from '@angular/core';
 import { Page, Color } from 'tns-core-modules/ui/page/page';
-
+// import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+// import { AngularFireStorageReference, AngularFireStorage } from '@angular/fire/storage';
+import { Apphomepageinterface } from '../../shared/apphomepageinterface';
+// import { map } from 'rxjs/operators';
 
 declare const android: any;
 declare const CGSizeMake: any;
@@ -31,9 +35,15 @@ export class HomeComponent implements OnInit, AfterContentInit {
     occassionHeading: string;
     screenHeight: number;
     screenWidth: number;
-    categories: any = [];
+    // categories: any = [];
     topTrendyHeading: string;
-    constructor(private routerExtensions: RouterExtensions, private page: Page) {
+    browseCategoryHeading: string;
+    // private byCategorycoll: AngularFirestoreCollection<Apphomepageinterface>;
+    categories: ObservableArray<Apphomepageinterface[]>;
+    // fileRef: AngularFireStorageReference;
+    catPhotoImg = [];
+
+    constructor(private routerExtensions: RouterExtensions, private page: Page,) {
         this.page.actionBarHidden = true;
         this.screenHeight = ScreenDimensions.getheight(100);
         this.screenWidth = ScreenDimensions.getwidth(100);
@@ -42,7 +52,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
 
             }
         });
-        this.categories = [{ image: 'res://gallery', name: 'Flowers' }, { image: 'res://gallery', name: 'Cakes' }, { image: 'res://gallery', name: 'Combos' }, { image: 'res://gallery', name: 'Gifts' }, { image: 'res://gallery', name: 'Handmade' }];
+        // this.categories = [{ image: 'res://gallery', name: 'Flowers' }, { image: 'res://gallery', name: 'Cakes' }, { image: 'res://gallery', name: 'Combos' }, { image: 'res://gallery', name: 'Gifts' }, { image: 'res://gallery', name: 'Handmade' }];
         // setInterval(() => {
         //     setTimeout(() => {
         //         this.selectedPage++;
@@ -73,6 +83,20 @@ export class HomeComponent implements OnInit, AfterContentInit {
         this.occassionHeading = "Explore by occassions";
         this.sendCakesHeading = "Send cakes by flavour";
         this.topTrendyHeading = "Top Trendy";
+        this.browseCategoryHeading = "Browse by categories";
+
+        // this.categories = this.byCategorycoll.snapshotChanges().pipe(
+        //     map(actions => actions.map(a => {
+        //         const data = a.payload.doc.data() as Apphomepageinterface;
+        //         const id = a.payload.doc.id;
+        //         this.fileRef = this.storage.ref(data.imgpath);
+        //         this.fileRef.getDownloadURL().toPromise().then((url) =>
+        //             this.catPhotoImg.push(url)
+        //         )
+        //         console.log(this.catPhotoImg);
+        //         return { id, ...data };
+        //     }))
+        // );
     }
 
     protected get shadowColor(): Color {

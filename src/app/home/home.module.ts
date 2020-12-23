@@ -1,3 +1,4 @@
+import { HeaderModule } from './../shared/header/header.module';
 import { FooterModule } from './../shared/footer/footer.module';
 import { HomeRoutingModule } from './../home/home-routing.module';
 import { HomeComponent } from './components/home.component';
@@ -17,7 +18,8 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
         HttpClientModule,
         HomeRoutingModule,
         NativeScriptUIListViewModule,
-        FooterModule
+        FooterModule,
+        HeaderModule
     ],
     declarations: [
         HomeComponent

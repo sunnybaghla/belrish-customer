@@ -17,13 +17,12 @@ export class HeaderComponent implements OnInit {
     headerLabel: string;
     showHeader: boolean;
     showBackButton: string;
-    // showAddButton: string;
     screen: string;
 
     constructor(private http: HttpClient, private page: Page, private routerExtensions: RouterExtensions) {
         this.page.actionBarHidden = true;
         this.backIcon = "res://back";
-        this.headerLabel = "";
+        this.headerLabel = "elrish";
         this.showHeader = true;
         this.showBackButton = "visible";
         // this.showAddButton = "hidden";
