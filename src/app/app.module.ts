@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 import { ModalDialogService } from 'nativescript-angular/modal-dialog';
 // import { ModalComponent } from './modal/modal.component';
 
@@ -9,7 +11,28 @@ import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
 import { UserService } from "./services/user.service";
 import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
-import { FormsModule } from '@angular/forms';
+const firebase = require("nativescript-plugin-firebase");
+
+firebase.init({
+   // persist: false,
+
+   // storageBucket: 'gs://belrish-store.appspot.com'
+
+  // Optionally pass in properties for database, authentication and cloud messaging,
+  // see their respective docs.
+}).then(
+  () => {
+    console.log("firebase.init done");
+  },
+  error => {
+    console.log(`firebase.init error: ${error}`);
+  }
+);
+
+
+// firebase.initializeApp({
+//    persist: false
+//  });
 
 
 

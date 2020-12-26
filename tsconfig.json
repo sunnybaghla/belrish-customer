@@ -5,6 +5,7 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "noEmitHelpers": true,
+        "moduleResolution": "node",
         "noEmitOnError": true,
         "skipLibCheck": true,
         "lib": [

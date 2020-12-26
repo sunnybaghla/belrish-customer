@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "728341835793",
+    "firebase_url": "https://belrish-store.firebaseio.com",
+    "project_id": "belrish-store",
+    "storage_bucket": "gs://belrish-store.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728341835793:android:c6f78864d11df4206041b0",
+        "android_client_info": {
+          "package_name": "com.gift.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728341835793-te8n4b2b68gpt3ismlvlm2a4jlv7cdfi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfjqa2X7FFQ_tAN0_kUCu6FuTp5TcWDrU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728341835793-te8n4b2b68gpt3ismlvlm2a4jlv7cdfi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728341835793:android:a0c41c2f54a197f96041b0",
+        "android_client_info": {
+          "package_name": "org.nativescript.BelrishShop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728341835793-te8n4b2b68gpt3ismlvlm2a4jlv7cdfi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfjqa2X7FFQ_tAN0_kUCu6FuTp5TcWDrU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728341835793-te8n4b2b68gpt3ismlvlm2a4jlv7cdfi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

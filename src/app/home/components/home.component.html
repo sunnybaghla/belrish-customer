@@ -12,14 +12,16 @@
             <ScrollView>
                 <StackLayout>
                     <GridLayout class="categoryContainer" [height]="screenHeight*0.10" [marginTop]="screenHeight*0.02">
-                        <RadListView [items]="categories" verticalAlignment="middle">
+                        <RadListView *ngFor="let item of topList " verticalAlignment="middle"> -->
                             <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal">
-                            </ListViewLinearLayout>
+                            </ListViewLinearLayout> -->
                             <ng-template let-item="item" let-i="index">
                                 <StackLayout [width]="screenWidth*0.20">
-                                    <Image row="0" [src]="item.image" [borderRadius]="screenHeight*0.03"
-                                        [height]="screenWidth*0.12" [width]="screenWidth*0.12"></Image>
-                                    <Label row="1" class="categoryName" [text]=" item.name"></Label>
+                                    <!-- <Image row="0" [src]="topImg[0]" [borderRadius]="screenHeight*0.03"
+                                        [height]="screenWidth*0.12" [width]="screenWidth*0.12"></Image> -->
+                                        <!-- <Image stretch="aspectFill" [src]="topImg[0]" verticalAlignment="middle"></Image> -->
+
+                                    <Label row="1" class="categoryName" [text]="item.name"></Label>
                                 </StackLayout>
                             </ng-template>
                         </RadListView>
@@ -30,22 +32,22 @@
                         indicatorColorUnselected="#23A6DB">
                         <CarouselItem>
                             <StackLayout width="100%" height="100%" verticalAlignment="middle">
-                                <Image stretch="aspectFill" [src]="sliderImage1" verticalAlignment="middle"></Image>
+                                <Image stretch="aspectFill" [src]="sliderImg[0]" verticalAlignment="middle"></Image>
                             </StackLayout>
                         </CarouselItem>
                         <CarouselItem>
                             <StackLayout width="100%" height="100%" verticalAlignment="middle">
-                                <Image stretch="aspectFill" [src]="sliderImage2"></Image>
+                                <Image stretch="aspectFill" [src]="sliderImg[1]"></Image>
                             </StackLayout>
                         </CarouselItem>
                         <CarouselItem>
                             <StackLayout width="100%" height="100%" verticalAlignment="middle">
-                                <Image stretch="aspectFill" [src]="sliderImage3"></Image>
+                                <Image stretch="aspectFill" [src]="sliderImg[2]"></Image>
                             </StackLayout>
                         </CarouselItem>
                         <CarouselItem>
                             <StackLayout width="100%" height="100%" verticalAlignment="middle">
-                                <Image stretch=" aspectFill" [src]="sliderImage4">
+                                <Image stretch=" aspectFill" [src]="sliderImg[3]">
                                 </Image>
                             </StackLayout>
                         </CarouselItem>
@@ -53,10 +55,10 @@
                     <GridLayout class="findPerfectGift" [height]="screenHeight*0.10" [marginTop]="screenHeight*0.02"
                         androidElevation="5" columns="auto,auto,auto">
                         <GridLayout col="0" class="findPerfectGift1">
-                            <Image src="res://gallery" class="findPerfectGift11"></Image>
+                            <Image [src]="categoriesImg[0]" class="findPerfectGift11"></Image>
                         </GridLayout>
                         <StackLayout col="1" class="findPerfectGift2">
-                            <Label text="Find The Perfect Gift" class="findPerfectGift21"></Label>
+                            <Label [text]="catPhotoImg[0].name " class="findPerfectGift21"></Label>
                             <Label text="Discover Gifts by Recipient, Relationships & Occasions." textWrap="true"
                                 class="findPerfectGift22"></Label>
                         </StackLayout>
@@ -70,21 +72,22 @@
                         <Button row="0" class="viewAll" text="VIEW ALL" [height]="screenHeight*0.03"
                             [marginTop]="screenHeight*0.01"></Button>
                         <GridLayout row="1" class="sendCakesContainer1" columns="*,*,*">
+                            
                             <StackLayout class="sendCakesContainer11" col="0" verticalAlignment="middle"
                                 [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage1">
+                                <Image class="sendCakesImage" [src]="categoriesImg[0]">
                                 </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
+                                <Label class="sendCakesName" [text]="categoriesList[0].name"></Label>
                             </StackLayout>
                             <StackLayout class="sendCakesContainer11" col="1" verticalAlignment="middle"
                                 androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage2">
+                                <Image class="sendCakesImage" [src]="categoriesImg[1]">
                                 </Image>
                                 <Label class="sendCakesName" text="EGGLESS"></Label>
                             </StackLayout>
                             <StackLayout class="sendCakesContainer11" col="2" verticalAlignment="middle"
                                 androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage3">
+                                <Image class="sendCakesImage" [src]="categoriesImg[2]">
                                 </Image>
                                 <Label class="sendCakesName" text="EGGLESS"></Label>
                             </StackLayout>
@@ -92,19 +95,19 @@
                         <GridLayout row="2" class="sendCakesContainer1" columns="*,*,*">
                             <StackLayout class="sendCakesContainer11" col="0" verticalAlignment="middle"
                                 androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage1">
+                                <Image class="sendCakesImage" [src]="categoriesImg[3]">
                                 </Image>
                                 <Label class="sendCakesName" text="EGGLESS"></Label>
                             </StackLayout>
                             <StackLayout class="sendCakesContainer11" col="1" verticalAlignment="middle"
                                 androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage2">
+                                <Image class="sendCakesImage" [src]="categoriesImg[4]">
                                 </Image>
                                 <Label class="sendCakesName" text="EGGLESS"></Label>
                             </StackLayout>
                             <StackLayout class="sendCakesContainer11" col="2" verticalAlignment="middle"
                                 androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage3">
+                                <Image class="sendCakesImage" [src]="categoriesImg[5]">
                                 </Image>
                                 <Label class="sendCakesName" text="EGGLESS"></Label>
                             </StackLayout>
@@ -113,19 +116,19 @@
                     <GridLayout class="specialAboutUsContainer" columns="*,*,*,*" [height]="screenHeight*0.10"
                         [marginTop]="screenHeight*0.02">
                         <StackLayout class="specialAboutUs" col="0" verticalAlignment="middle">
-                            <Image class="specialAboutUsImage" [src]="specialImage1">
+                            <Image class="specialAboutUsImage" [src]="box4Img[0]">
                             </Image>
                         </StackLayout>
                         <StackLayout class="specialAboutUs" col="1" verticalAlignment="middle">
-                            <Image class="specialAboutUsImage" [src]="specialImage2">
+                            <Image class="specialAboutUsImage" [src]="box4Img[1]">
                             </Image>
                         </StackLayout>
                         <StackLayout class="specialAboutUs" col="2" verticalAlignment="middle">
-                            <Image class="specialAboutUsImage" [src]="specialImage3">
+                            <Image class="specialAboutUsImage" [src]="box4Img[2]">
                             </Image>
                         </StackLayout>
                         <StackLayout class="specialAboutUs" col="3" verticalAlignment="middle">
-                            <Image class="specialAboutUsImage" [src]="specialImage4">
+                            <Image class="specialAboutUsImage" [src]="box4Img[3]">
                             </Image>
                         </StackLayout>
                     </GridLayout>
@@ -141,19 +144,19 @@
                         <GridLayout row="1" class="sendCakesContainer1" columns="*,*,*">
                             <StackLayout class="sendCakesContainer11" col="0" verticalAlignment="middle"
                                 androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage1">
+                                <Image class="sendCakesImage" [src]="byfalvourImg[0]">
                                 </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
+                                <Label class="sendCakesName" [text]="byFlavourList[0].name"></Label>
                             </StackLayout>
                             <StackLayout class="sendCakesContainer11" col="1" verticalAlignment="middle"
                                 androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage2">
+                                <Image class="sendCakesImage" [src]="byfalvourImg[1]">
                                 </Image>
                                 <Label class="sendCakesName" text="EGGLESS"></Label>
                             </StackLayout>
                             <StackLayout class="sendCakesContainer11" col="2" verticalAlignment="middle"
                                 androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage3">
+                                <Image class="sendCakesImage" [src]="byfalvourImg[2]">
                                 </Image>
                                 <Label class="sendCakesName" text="EGGLESS"></Label>
                             </StackLayout>
@@ -161,19 +164,19 @@
                         <GridLayout row="2" class="sendCakesContainer1" columns="*,*,*">
                             <StackLayout class="sendCakesContainer11" col="0" verticalAlignment="middle"
                                 androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage1">
+                                <Image class="sendCakesImage" [src]="byfalvourImg[3]">
                                 </Image>
                                 <Label class="sendCakesName" text="EGGLESS"></Label>
                             </StackLayout>
                             <StackLayout class="sendCakesContainer11" col="1" verticalAlignment="middle"
                                 androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage2">
+                                <Image class="sendCakesImage" [src]="byfalvourImg[4]">
                                 </Image>
                                 <Label class="sendCakesName" text="EGGLESS"></Label>
                             </StackLayout>
                             <StackLayout class="sendCakesContainer11" col="2" verticalAlignment="middle"
                                 androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage3">
+                                <Image class="sendCakesImage" [src]="byfalvourImg[5]">
                                 </Image>
                                 <Label class="sendCakesName" text="EGGLESS"></Label>
                             </StackLayout>
@@ -186,17 +189,17 @@
                     <GridLayout class="occassionContainer" columns="*,*,*" [height]="screenHeight*0.15"
                         [marginTop]="screenHeight*0.01">
                         <StackLayout class="occassion" col="0" verticalAlignment="middle" androidElevation="5">
-                            <Image class="occassionImage" [src]="specialImage1">
+                            <Image class="occassionImage" [src]="byOccasionList[0]">
                             </Image>
-                            <Label class="occassionName" text="Anniversary"></Label>
+                            <Label class="occassionName" [text]="byOccasionList[0].name"></Label>
                         </StackLayout>
                         <StackLayout class="occassion" col="1" verticalAlignment="middle" androidElevation="5">
-                            <Image class="occassionImage" [src]="specialImage2">
+                            <Image class="occassionImage" [src]="byOccasionImg[1]">
                             </Image>
                             <Label class="occassionName" text="Birthday"></Label>
                         </StackLayout>
                         <StackLayout class="occassion" col="2" verticalAlignment="middle" androidElevation="5">
-                            <Image class="occassionImage" [src]="specialImage3">
+                            <Image class="occassionImage" [src]="byOccasionImg[1]">
                             </Image>
                             <Label class="occassionName" text="Christmas"></Label>
                         </StackLayout>
