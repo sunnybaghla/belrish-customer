@@ -1,7 +1,7 @@
 import { TestComponent } from './components/test.component';
 
 import { NgModule } from "@angular/core";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { NativeScriptRouterModule } from "@nativescript/angular";
 import { Routes } from "@angular/router";
 
 const routes: Routes = [

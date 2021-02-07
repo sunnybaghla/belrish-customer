@@ -2,13 +2,12 @@ import { ActivatedRoute } from '@angular/router';
 import { AfterViewInit } from '@angular/core';
 import { PrePincodeService } from '../../services/prePincode.service';
 import { ElementRef } from '@angular/core';
-import { RouterExtensions } from 'nativescript-angular/router';
+import { RouterExtensions } from '@nativescript/angular';
 import { AddressAllService } from '../../addressAll.service';
-import { TextField } from 'tns-core-modules/ui/text-field';
-import { Color } from "tns-core-modules/color";
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Page } from 'tns-core-modules/ui/page/page';
+import { Color, Page } from '@nativescript/core';
 import { Menu } from "nativescript-menu";
+import { TextField } from '@nativescript/core';
 
 declare var android;
 

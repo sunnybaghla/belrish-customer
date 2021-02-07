@@ -1,15 +1,26 @@
 // this import should be first in order to load some required settings (like globals and reflect-metadata)
-import { platformNativeScriptDynamic } from "nativescript-angular/platform";
-
-import { AppModule } from "./app/app.module";
+import { platformNativeScriptDynamic } from "@nativescript/angular";
 import { enableProdMode } from "@angular/core";
+import { AppModule } from "./app/app.module";
+import { firebase } from "@nativescript/firebase";
 
-import { registerElement } from "nativescript-angular/element-registry";
-import { Video } from 'nativescript-videoplayer';
-registerElement("VideoPlayer", () => Video);
- 
+firebase.init();
+// firebase.init({
+//     // persist: false,
 
-registerElement("ImageSwipe", () => require("nativescript-image-swipe/image-swipe").ImageSwipe);
+//     // storageBucket: 'gs://belrish-store.appspot.com'
+
+//     // Optionally pass in properties for database, authentication and cloud messaging,
+//     // see their respective docs.
+// }).then(
+//     () => {
+//         console.log("firebase.init done");
+//     },
+//     error => {
+//         console.log(`firebase.init error: ${error}`);
+//     }
+// );
+
 enableProdMode();
 
 // A traditional NativeScript application starts by initializing global objects,

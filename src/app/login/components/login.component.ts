@@ -1,11 +1,9 @@
-import { ViewChild, ElementRef, Component, AfterViewInit, Renderer, OnInit } from "@angular/core";
-import { RouterExtensions } from "nativescript-angular/router";
-import { TextField } from "tns-core-modules/ui/text-field";
+import { ViewChild, ElementRef, Component, AfterViewInit, OnInit } from "@angular/core";
+import { RouterExtensions } from "@nativescript/angular";
 import { ActivatedRoute } from "@angular/router";
-import { android } from "tns-core-modules/application/application";
-import { Page } from "tns-core-modules/ui/page/page";
 import { NavigationExtras } from "@angular/router";
 import { from } from "rxjs";
+import { Page } from "@nativescript/core";
 
 @Component({
     selector: "ns-login",

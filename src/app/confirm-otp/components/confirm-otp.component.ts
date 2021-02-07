@@ -1,13 +1,11 @@
-import { TextField } from 'tns-core-modules/ui/text-field';
-import { RouterExtensions } from 'nativescript-angular/router';
-import { Color, viewMatchesModuleContext, Page } from 'tns-core-modules/ui/page/page';
 import { AfterViewInit, Renderer2 } from "@angular/core";
 import { ViewChild } from "@angular/core";
 import { ElementRef } from "@angular/core";
 import { OnInit } from "@angular/core";
 import { Component, Directive } from "@angular/core";
-import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { NavigationExtras, ActivatedRoute } from "@angular/router";
+import { RouterExtensions } from "@nativescript/angular";
+import { Page, TextField } from "@nativescript/core";
 
 @Component({
   selector: 'ns-confirmOtp',

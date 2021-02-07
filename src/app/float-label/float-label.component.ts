@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, ViewChild } from "@angular/core";
-import { Color } from "tns-core-modules/color";
+import { Color } from "@nativescript/core";
 
 @Component({
     selector: "FloatLabel",
@@ -14,8 +14,8 @@ import { Color } from "tns-core-modules/color";
 export class FloatLabel {
     @Input() placeholder: string;
     @Input() secure: boolean;
-    @ViewChild("label",{static:false}) label: ElementRef;
-    @ViewChild("textField",{static:false}) textField: ElementRef;
+    @ViewChild("label", { static: false }) label: ElementRef;
+    @ViewChild("textField", { static: false }) textField: ElementRef;
 
     constructor() {
 
@@ -33,8 +33,8 @@ export class FloatLabel {
             translate: { x: 0, y: - 20 },
             opacity: 1,
         }).then(() => { }, () => { });
-                // textField.borderBottomWidth='1';
-                
+        // textField.borderBottomWidth='1';
+
         //  textField.style.border.width='1px';
         // set the border bottom color to green to indicate focus
         textField.borderBottomColor = new Color("black");

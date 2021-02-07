@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-// import { UserService } from "~/app/services/user.service";
-import { RouterExtensions } from "nativescript-angular/router";
-import { Page, Color } from "tns-core-modules/ui/page/page";
-
+import { Color, Page } from "@nativescript/core";
+import { RouterExtensions } from "@nativescript/angular";
 
 declare const android: any;
 declare const CGSizeMake: any;

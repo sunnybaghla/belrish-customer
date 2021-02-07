@@ -1,9 +1,8 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
-import { NativeScriptCommonModule } from "nativescript-angular/common";
-import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { ConfirmOtpComponent } from "./components/confirm-otp.component";
 import { ConfirmOtpRoutingModule } from "./confirm-otp-routing.module";
+import { NativeScriptCommonModule } from "@nativescript/angular";
 
 
 @NgModule({
@@ -12,7 +11,7 @@ import { ConfirmOtpRoutingModule } from "./confirm-otp-routing.module";
     ],
     imports: [
         NativeScriptCommonModule,
-        NativeScriptFormsModule,
+        NativeScriptCommonModule,
         HttpClientModule,
         ConfirmOtpRoutingModule,
     ],

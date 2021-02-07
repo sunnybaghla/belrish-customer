@@ -1,19 +1,12 @@
-import { Color } from 'tns-core-modules/color';
 import { ElementRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
 
-import { Page } from 'tns-core-modules/ui/page/page';
 import { Directive } from '@angular/core';
 import { ConfirmOtpModule } from './../../confirm-otp/confirm-otp.module';
 import { Component, OnInit } from '@angular/core';
 import { PageChangeEventData } from "nativescript-image-swipe";
 import { Video } from 'nativescript-videoplayer';
-import { SwipeGestureEventData } from "tns-core-modules/ui/gestures";
-
-import { ScrollView, ScrollEventData } from 'tns-core-modules/ui/scroll-view';
-import { Image } from 'tns-core-modules/ui/image';
-import { View } from 'tns-core-modules/ui/core/view';
-import { screen } from 'tns-core-modules/platform';
+import { Color, Page, ScrollEventData, ScrollView, SwipeGestureEventData, View } from '@nativescript/core';
 
 
 

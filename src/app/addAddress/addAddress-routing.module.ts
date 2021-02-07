@@ -1,11 +1,11 @@
+import { NativeScriptRouterModule } from '@nativescript/angular';
 import { Routes } from '@angular/router';
-import { NativeScriptRouterModule } from 'nativescript-angular/router';
 import { NgModule } from '@angular/core';
 
 import { AddAddressComponent } from "./components/addAddress.component";
 
 const routes: Routes = [
-    { path: "", component: AddAddressComponent},
+    { path: "", component: AddAddressComponent },
 ];
 
 

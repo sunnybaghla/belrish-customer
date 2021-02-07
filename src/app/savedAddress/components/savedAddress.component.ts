@@ -1,8 +1,8 @@
 import { NavigationExtras, ActivatedRoute } from '@angular/router';
 import { AfterViewInit } from '@angular/core';
-import { RouterExtensions } from 'nativescript-angular/router';
+import { RouterExtensions } from '@nativescript/angular';
 import { Component, OnInit } from '@angular/core';
-import { Page } from 'tns-core-modules/ui/page/page';
+import { Page } from '@nativescript/core';
 
 
 @Component({

@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { NativeScriptRouterModule } from 'nativescript-angular/router';
+import { NativeScriptRouterModule } from '@nativescript/angular';
 import { NgModule } from '@angular/core';
 import { AddressComponent } from './components/address.component';
 

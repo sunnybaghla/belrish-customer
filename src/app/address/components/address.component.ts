@@ -1,6 +1,5 @@
-import { Page } from 'tns-core-modules/ui/page/page';
-import { ModalDialogService, ModalDialogOptions } from 'nativescript-angular/modal-dialog';
-import { RouterExtensions } from 'nativescript-angular/router';
+import { Page } from '@nativescript/core';
+import { ModalDialogService, RouterExtensions } from '@nativescript/angular';
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 
 @Component({
