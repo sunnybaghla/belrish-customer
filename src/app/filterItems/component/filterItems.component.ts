@@ -1,5 +1,3 @@
-import { Label } from 'tns-core-modules/ui/label';
-import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { ElementRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';

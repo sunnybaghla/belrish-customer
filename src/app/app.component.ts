@@ -1,9 +1,8 @@
 import { Component, OnInit, AfterContentInit, AfterViewInit } from "@angular/core";
-import { RouterExtensions } from 'nativescript-angular/router'
 import { UserService } from "./services/user.service";
-import { registerElement } from 'nativescript-angular/element-registry';
 import { Carousel, CarouselItem } from 'nativescript-carousel';
-import { Folder, path, File } from "tns-core-modules/file-system";
+import { registerElement, RouterExtensions } from "@nativescript/angular";
+import { Folder } from "@nativescript/core";
 
 declare const android: any;
 declare const CGSizeMake: any;
@@ -18,7 +17,7 @@ registerElement('CarouselItem', () => CarouselItem);
 })
 export class AppComponent implements OnInit, AfterContentInit, AfterViewInit {
 
-    
+
     searchColor = "#9E9E9E";
     quizColor = "#9E9E9E";
     topicsColor = "#273BD3";

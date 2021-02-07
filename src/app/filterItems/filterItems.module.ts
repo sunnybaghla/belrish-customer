@@ -4,8 +4,8 @@ import { FilterItemsComponent } from './component/filterItems.component';
 
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
-import { NativeScriptCommonModule } from "nativescript-angular/common";
-import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptCommonModule } from "@nativescript/angular";
+import { NativeScriptFormsModule } from "@nativescript/angular";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 
 

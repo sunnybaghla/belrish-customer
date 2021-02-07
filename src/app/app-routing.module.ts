@@ -1,11 +1,12 @@
 import { ItemDetailsModule } from './item-details/item-details.module';
 import { NgModule } from "@angular/core";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Routes, PreloadAllModules } from "@angular/router";
+import { NativeScriptRouterModule } from '@nativescript/angular';
 
 const routes: Routes = [
     { path: "", redirectTo: "/home", pathMatch: "full" },
-    { path: "home", loadChildren: "./home/home.module#HomeModule" },
+    { path: "home", loadChildren: () => import("./home/home.module").then((m) => m.HomeModule) },
+    // { path: "home", loadChildren: "./home/home.module#HomeModule" },
     { path: "login", loadChildren: "./login/login.module#LoginModule" },
     { path: "confirmOtp", loadChildren: "./confirm-otp/confirm-otp.module#ConfirmOtpModule" },
     { path: "address", loadChildren: "./address/address.module#AddressModule" },

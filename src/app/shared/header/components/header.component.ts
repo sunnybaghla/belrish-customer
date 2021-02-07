@@ -1,7 +1,7 @@
-import { RouterExtensions } from 'nativescript-angular/router';
 import { Component, OnInit, Input } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Page, Color } from 'tns-core-modules/ui/page/page';
+import { RouterExtensions } from "@nativescript/angular";
+import { Color, Page } from "@nativescript/core";
 
 declare const android: any;
 declare const CGSizeMake: any;

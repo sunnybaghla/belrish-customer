@@ -19,8 +19,8 @@
                                 <StackLayout [width]="screenWidth*0.20">
                                     <!-- <Image row="0" [src]="topImg[0]" [borderRadius]="screenHeight*0.03"
                                         [height]="screenWidth*0.12" [width]="screenWidth*0.12"></Image> -->
-                                        <!-- <Image stretch="aspectFill" [src]="topImg[0]" verticalAlignment="middle"></Image> -->
-
+                                    <!-- <Image stretch="aspectFill" [src]="topImg[0]" verticalAlignment="middle"></Image> -->
+                                    
                                     <Label row="1" class="categoryName" [text]="item.name"></Label>
                                 </StackLayout>
                             </ng-template>
@@ -72,9 +72,9 @@
                         <Button row="0" class="viewAll" text="VIEW ALL" [height]="screenHeight*0.03"
                             [marginTop]="screenHeight*0.01"></Button>
                         <GridLayout row="1" class="sendCakesContainer1" columns="*,*,*">
-                            
+
                             <StackLayout class="sendCakesContainer11" col="0" verticalAlignment="middle"
-                                [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
+                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
                                 <Image class="sendCakesImage" [src]="categoriesImg[0]">
                                 </Image>
                                 <Label class="sendCakesName" [text]="categoriesList[0].name"></Label>
@@ -182,7 +182,7 @@
                             </StackLayout>
                         </GridLayout>
                     </GridLayout>
-                    <GridLayout class="occassionHeadingContainer" [marginTop]="screenHeight*0.02">
+                     <GridLayout class="occassionHeadingContainer" [marginTop]="screenHeight*0.02">
                         <Label class="occassionHeading" [text]="occassionHeading"></Label>
                         <Button row="0" class="viewAll" text="VIEW ALL" [height]="screenHeight*0.03"></Button>
                     </GridLayout>

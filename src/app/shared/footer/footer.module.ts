@@ -1,5 +1,5 @@
+import { NativeScriptCommonModule } from '@nativescript/angular';
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { FooterComponent } from "./components/footer.component";
 
 
