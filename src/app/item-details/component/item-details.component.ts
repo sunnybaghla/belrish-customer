@@ -17,7 +17,7 @@ export class ItemDetailsComponent implements OnInit {
 
   @ViewChild("player", { static: false }) player: ElementRef;
   @ViewChild("label", { static: false }) label: ElementRef;
-  @ViewChild("textField", { static: false }) textField: ElementRef;
+  // @ViewChild("textField", { static: false }) textField: ElementRef;
 
   defaultPrice: number = 0;
   itemImgVid: any[] = [];
@@ -55,6 +55,7 @@ export class ItemDetailsComponent implements OnInit {
     desc: { heading: string, info: string }[]
   }[] = [];
   public tempa: number = 5;
+  
 
 
   public direction: number;
@@ -62,7 +63,7 @@ export class ItemDetailsComponent implements OnInit {
   discountPrice: number;
   screenHeight: number;
   screenWidth: number;
-  dest: boolean = false;
+  dest: boolean = true;
 
   constructor(private page: Page) {
     this.page.actionBarHidden = true;
@@ -100,7 +101,7 @@ export class ItemDetailsComponent implements OnInit {
       trending: false,
       bestSeller: false,
       Sellby: "gift",
-      desc: [{ heading: "info", info: "hell ajfalfanfla alksdfla alksnfa kas afknaf  kasmdf fkamnf aksldfma faklfa f asfna f afalfo" }, { heading: "s lllmize", info: "Asafafafasdafaf aksnf asnf fnas  asd  d rrw wfs fs sdf f s sdf sf s fs s  sf s fs f sf s df s dsf d fsd s d sdf dsf  fs d  sd f f s s  f  f f fds s fsf " }]
+      desc: [{ heading: "info", info: "hell ajfalfanfla alksdfla alksnfa kas afknaf  kasmdf fkamnf aksldfma faklfa f asfna f afalfo" },{ heading: "info", info: "hell afalfanfla alksdfla alksnfa kas afknaf  kasmdf fkamnf aksldfma faklfa f asfna f afalfo" }, { heading: "s lllmize", info: "Asafafafasdafaf aksnf asnf fnas  asd  d rrw wfs fs sdf f s sdf sf s fs s  sf s fs f sf s df s dsf d fsd s d sdf dsf  fs d  sd f f s s  f  f f fds s fsf " }]
     });
 
     this.recItem.push({
@@ -224,20 +225,7 @@ export class ItemDetailsComponent implements OnInit {
   }
 
 
-  onFocus() {
-    const label = this.label.nativeElement;
-    const textField = this.textField.nativeElement;
-    // animate the label sliding up and less transparent.
-    label.animate({
-      translate: { x: 0, y: - 20 },
-      opacity: 1,
-    }).then(() => { }, () => { });
-    // textField.borderBottomWidth='1';
-
-    //  textField.style.border.width='1px';
-    // set the border bottom color to green to indicate focus
-    textField.borderBottomColor = new Color("black");
-  }
+  
 
   checkRecSell(i) {
     if (this.recItem[i].itemMRP === this.recItem[i].itemPrice) {
@@ -253,19 +241,7 @@ export class ItemDetailsComponent implements OnInit {
     return Math.round(((this.recItem[i].itemMRP - this.recItem[i].itemPrice) / this.recItem[i].itemMRP) * 100);
   }
 
-  onBlur() {
-    const label = this.label.nativeElement;
-    const textField = this.textField.nativeElement;
-    // if there is text in our input then don't move the label back to its initial position.
-    if (!textField.text) {
-      label.animate({
-        translate: { x: 0, y: 0 },
-        opacity: 0.4
-      }).then(() => { }, () => { });
-    }
-    // reset border bottom color.
-    textField.borderBottomColor = new Color('#cec8c8');
-  }
+  
 
   public onSwipe(args: SwipeGestureEventData) {
     console.log("Swipe!");

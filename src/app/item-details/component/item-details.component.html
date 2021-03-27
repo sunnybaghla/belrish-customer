@@ -46,127 +46,116 @@
                             </Carousel>
                         </GridLayout>
                     </StackLayout>
-                    <StackLayout height="10%">
-                        <ListView [items]="ItemAllInfo" height="50%">
-                            <ng-template let-item="item" let-i="index">
-                                <StackLayout class="mainHeading">
-
-                                    <label [text]="item.ItemName" color="black" fontSize='19'></label>
-                                    <label [text]="item.itemDesc" textWrap="true" fontSize='15' marginLeft='5'></label>
-
-                                    <StackLayout orientation="Horizontal" marginTop='5'>
-                                        <label [text]="'₹'+ item.ItemPrice[defaultPrice].SellPrice" marginLeft='5'
-                                            color="black" fontSize='20' class="sell"></label>
-                                        <label *ngIf="chkDiscount()" [text]="  '₹  '+item.ItemPrice[defaultPrice].MRP"
-                                            fontSize='16' textDecoration="line-through" marginLeft='10'></label>
-                                        <label *ngIf="chkDiscount()" [text]="discountPrice+'%OFF'" marginLeft="10"
+                    <StackLayout class="mainHeading" style="padding: 0;" [width]="screenWidth*0.95" >
+                        <!-- <ListView  [items]="ItemAllInfo" style="padding: 0;">
+                            <ng-template let-item="item" let-i="index"> -->
+                                <StackLayout >
+                                    <label text="item.ItemName" color="black" fontSize='19'></label>
+                                    <label text="item.itemDesc" textWrap="true" fontSize='15' ></label>
+                                    <StackLayout orientation="Horizontal" padding="0">
+                                        <label text="'₹'+ 565"
+                                            color="black" fontSize='20' ></label>
+                                        <label *ngIf="chkDiscount()" text="  '₹  '+666"                                           fontSize='16' textDecoration="line-through" ></label>
+                                        <label *ngIf="chkDiscount()" text="36+'%OFF'"
                                             color="Red"></label>
                                     </StackLayout>
-                                    <label text="inclusive of all taxex" fontSize='13' color="green" marginBottom='10'
-                                        paddingLeft='10'>
+                                    <label text="inclusive of all taxex" fontSize='13' color="green"
+                                        >
                                     </label>
                                 </StackLayout>
-                            </ng-template>
-                        </ListView>
+                            <!-- </ng-template>
+                        </ListView> -->
                     </StackLayout>
 
-                    <!-- <StackLayout *ngIf="multiSize()" class="mainHeading" marginTop='3'>
-                        <Label text="Quantity" marginTop='5'></Label>
-                        <RadListView [items]="ItemAllInfo[0].ItemPrice">
-                            <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal">
+                    
+                    
+                    
+                    <StackLayout [width]="screenWidth*0.95"  *ngIf="multiSize()"  style="background-color: brown;" >
+                        <Label text="Quantity" style="font-size: 16%;font-weight: 500;"></Label>
+                        <RadListView [items]="ItemAllInfo[0].ItemPrice"  style="background-color: blue;padding: 0;margin: 0;padding: 0;">
+                            <ListViewLinearLayout style="background-color: teal;"  tkListViewLayout scrollDirection="Horizontal">
                             </ListViewLinearLayout>
-                            <ng-template let-item="item" let-i="index">
-                                <StackLayout>
-                                    <GridLayout marginTop='10' marginBottom='10'>
-                                        <button [text]="item.size" [class.Selected]="i===defaultPrice" class="btnSize"
-                                            marginLeft='10' (tap)="pricecount(i)"></button>
-                                    </GridLayout>
+                            <ng-template style="background-color: chocolate;" let-item="item" let-i="index">
+                                <!-- <StackLayout style="padding: 0;background-color: darkgreen;"> -->
+                                <StackLayout class="btnSize" style="background-color: pink;padding: 0;margin: 0;">
+                                    <Label  [text]="item.size" [class.btnSel]="i===defaultPrice"   (tap)="pricecount(i)"></Label>
+                                    <!-- <button [text]="item.size" [class.Selected]="i===defaultPrice" class="btnSize"
+                                        (tap)="pricecount(i)"></button> -->
+                                    <!-- </StackLayout> -->
                                 </StackLayout>
                             </ng-template>
                         </RadListView>
                     </StackLayout>
 
-                    <StackLayout class="mainHeading" color="black" height="12%" marginTop='3'>
-                        <label text="Product Highlight" class="pro"></label>
-                        <RadListView [items]="ItemAllInfo[0].proHighlight">
-                            <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal">
+                    <StackLayout   style="background-color: yellow;" [width]="screenWidth*.95"  >
+                        <label text="Product Highlights" class="pro" [marginBottom]="screenWidth*.01"></label>
+                        <RadListView [items]="ItemAllInfo[0].proHighlight" style="background-color: red;padding: 0;" marginBottom="0" >
+                            <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal" height="0">
                             </ListViewLinearLayout>
                             <ng-template let-item="item" let-i="index">
-                                <StackLayout>
-                                    <GridLayout rows="*,*" class="proHigh">
-                                        <label row="0" [text]="item.heading" color="gray" class="temp" width="110">
+                                <StackLayout style="background-color: black;" >
+                                    <GridLayout rows="*,*" >
+                                        <label row="0" [text]="item.heading" [width]="screenWidth*.25" color="gray" style="font-weight: 600;" >
                                         </label>
-                                        <label row="1" [text]="item.info" class="temp" width="110"></label>
+                                        <label row="1" [text]="item.info" [width]="screenWidth*.25" ></label>
                                     </GridLayout>
                                 </StackLayout>
                             </ng-template>
                         </RadListView>
                     </StackLayout>
+                    
 
-                    <StackLayout class="delivery" height="15%" marginTop='3' backgroundColor="white">
-                        <label text="DELIVERY and Services For" class="delSer">
+                    <StackLayout [width]="screenWidth*0.95" class="delivery"  backgroundColor="white">
+                        <label text="Delivery and Services for" style="font-size: 16%;font-weight: 600;" >
                         </label>
-                        <label *ngIf="checkSameDay()" text="✔ Same Day delivery avialble" color="black" marginTop="5"
-                            marginLeft="10"></label>
-                        <label *ngIf="midNights()" text="✔ MidNight delivey avialble" color="black" marginLeft="10"
-                            marginBottom='10'></label>
+                        <label *ngIf="checkSameDay()" text="✔ Same day delivery available" color="black"></label>
+                        <label *ngIf="midNights()" text="✔ Midnight delivery available" color="black"></label>
 
                     </StackLayout>
 
-                    <StackLayout>
-                        <GridLayout rows="15, auto" marginBottom="1" backgroundColor="white" marginTop='3'>
-                            <Label id="label" row="1" text="Enter the Name to Print On Cake" opacity="1" fontSize="16"
-                                class="meg" paddingTop="3" marginLeft="18"></Label>
-                            <TextField id="textField" [secure]="secure" row="1" marginBottom='10' (focus)="onFocus()"
-                                (blur)="onBlur()" borderBottomWidth="1" marginLeft='18' borderBottomColor="#cec8c8"
-                                padding="1"></TextField>
-                        </GridLayout>
+                    <StackLayout class="mainHeading" [width]="screenWidth*.95" [marginTop]="screenHeight*.01" >
+
+                            <TextField style="font-size: 16%;margin: 0;" hint="Enter the name to print On cake" ></TextField>
+                        
                     </StackLayout>
 
-                    <StackLayout height="50" class="delivery" (tap)="onDest()" marginTop="3">
-
-                        <label text="Product Details" width="80%" class="details" marginBottom='10'></label>
-                        <label text="+" width="20%" class="details" marginBottom='10'></label>
+                    <StackLayout  class="delivery"  [width]="screenWidth*.95" [marginTop]="screenHeight*.01">
+                        <label text="Product Details"  class="details" style="margin: 0;"></label>
+                        <!-- <label text="+" wid class="details" marginBottom='10'></label> -->
                     </StackLayout>
-
-                    <GridLayout *ngIf="dest" height="250" class="mainHeading" backgroundColor="white">
-                        <ListView [items]="ItemAllInfo[0].desc">
-
+                     <GridLayout   class="mainHeading" backgroundColor="white" [width]="screenWidth*.95">
+                        <RadListView height="auto" [items]="ItemAllInfo[0].desc">
                             <ng-template let-item="item" let-i="index">
-
-                                <StackLayout height="40">
+                                <StackLayout >
                                     <ScollView>
-                                        <StackLayout>
+                                        <StackLayout >
                                             <label [text]="item.heading" color="black" fontSize='16'></label>
-                                            <label [text]="item.info" textWrap="true" marginLeft="15"></label>
+                                            <label [text]="item.info" textWrap="true" ></label>
                                         </StackLayout>
                                     </ScollView>
                                 </StackLayout>
 
                             </ng-template>
-                        </ListView>
+                        </RadListView>
                     </GridLayout>
 
-                    <StackLayout height="7%" orientation="Horizontal" class="delivery" marginTop="3">
-                        <label text="More Information" width="80%" class="details" marginBottom='10'></label>
-                        <label text="+" width="20%" class="details" marginBottom='10'></label>
-                    </StackLayout>
+                  
 
-                    <StackLayout class="mainHeading" marginTop='3' height="320">
-                        <Label text="Recommend Items" marginTop='5'></Label>
-                        <RadListView [items]="recItem">
+                    <StackLayout class="mainHeading" [width]="screenWidth*.95">
+                        <Label text="Recommnd items" style="font-size: 16%;font-weight: 600;"></Label>
+                        <RadListView [items]="recItem" [marginTop]="screenHeight*.01">
                             <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal">
                             </ListViewLinearLayout>
                             <ng-template let-item="item" let-i="index">
                                 <StackLayout>
                                     <GridLayout>
-                                        <StackLayout width='220' height='280'>
-                                            <StackLayout class="recGrid" width="200" height="280">
-                                                <Image [src]="item.itemUrl" width='200' height="200"
+                                        <StackLayout  >
+                                            <StackLayout class="recGrid"  >
+                                                <Image [src]="item.itemUrl" [width]="screenWidth*.40" [height]="screenWidth*.40"
                                                     stretch="aspectFill"></Image>
-                                                <label [text]="item.itemName" marginLeft='10' color="black">
+                                                <label [text]="item.itemName" style="font-size: 12%;font-weight: 500;" marginLeft='10' color="black">
                                                 </label>
-                                                <label [text]="item.itemDesc" marginLeft='10'></label>
+                                                <label [text]="item.itemDesc" marginLeft='9'></label>
                                                 <StackLayout orientation="Horizontal">
                                                     <label [text]="'₹'+ item.itemPrice" color="black"
                                                         marginLeft='10'></label>
@@ -175,266 +164,22 @@
                                                     <label *ngIf="checkRecSell(i)" [text]="checkRecDis(i) +'%OFF'"
                                                         color="red" marginLeft='10'></label>
                                                 </StackLayout>
-                                                <StackLayout class="mainHeading" marginTop='3' height="1000">
-                                                    <Label text="Recommend Items" marginTop='5'></Label>
-                                                    <RadListView [items]="recItem">
-                                                        <ListViewLinearLayout tkListViewLayout
-                                                            scrollDirection="Horizontal">
-                                                        </ListViewLinearLayout>
-                                                        <ng-template let-item="item" let-i="index">
-                                                            <StackLayout>
-                                                                <StackLayout>
-                                                                    <GridLayout>
-                                                                        <StackLayout width='220' height='280'>
-                                                                            <StackLayout class="recGrid" width="200"
-                                                                                height="280">
-                                                                                <Image [src]="item.itemUrl" width='200'
-                                                                                    height="200" stretch="aspectFill">
-                                                                                </Image>
-                                                                                <label [text]="item.itemName"
-                                                                                    marginLeft='10' color="black">
-                                                                                </label>
-                                                                                <label [text]="item.itemDesc"
-                                                                                    marginLeft='10'></label>
-                                                                                <StackLayout orientation="Horizontal">
-                                                                                    <label [text]="'₹'+ item.itemPrice"
-                                                                                        color="black"
-                                                                                        marginLeft='10'></label>
-                                                                                    <label [text]="item.itemMRP"
-                                                                                        *ngIf="checkRecSell(i)"
-                                                                                        textDecoration="line-through"
-                                                                                        marginLeft='10'></label>
-                                                                                    <label *ngIf="checkRecSell(i)"
-                                                                                        [text]="checkRecDis(i) +'%OFF'"
-                                                                                        color="red"
-                                                                                        marginLeft='10'></label>
-                                                                                </StackLayout>
-                                                                            </StackLayout>
-                                                                        </StackLayout>
-                                                                    </GridLayout>
-                                                                </StackLayout>
-                                                                <StackLayout height="10%">
-                                                                    <ListView [items]="ItemAllInfo" height="50%">
-                                                                        <ng-template let-item="item" let-i="index">
-                                                                            <StackLayout class="mainHeading">
-
-                                                                                <label [text]="item.ItemName"
-                                                                                    color="black" fontSize='19'></label>
-                                                                                <label [text]="item.itemDesc"
-                                                                                    textWrap="true" fontSize='15'
-                                                                                    marginLeft='5'></label>
-
-                                                                                <StackLayout orientation="Horizontal"
-                                                                                    marginTop='5'>
-                                                                                    <label
-                                                                                        [text]="'₹'+ item.ItemPrice[defaultPrice].SellPrice"
-                                                                                        marginLeft='5' color="black"
-                                                                                        fontSize='20'
-                                                                                        class="sell"></label>
-                                                                                    <label *ngIf="chkDiscount()"
-                                                                                        [text]="  '₹  '+item.ItemPrice[defaultPrice].MRP"
-                                                                                        fontSize='16'
-                                                                                        textDecoration="line-through"
-                                                                                        marginLeft='10'></label>
-                                                                                    <label *ngIf="chkDiscount()"
-                                                                                        [text]="discountPrice+'%OFF'"
-                                                                                        marginLeft="10"
-                                                                                        color="Red"></label>
-                                                                                </StackLayout>
-                                                                                <label text="inclusive of all taxex"
-                                                                                    fontSize='13' color="green"
-                                                                                    marginBottom='10' paddingLeft='10'>
-                                                                                </label>
-                                                                            </StackLayout>
-                                                                        </ng-template>
-                                                                    </ListView>
-                                                                </StackLayout>
-
-                                                                <StackLayout *ngIf="multiSize()" class="mainHeading"
-                                                                    marginTop='3'>
-                                                                    <Label text="Quantity" marginTop='5'></Label>
-                                                                    <RadListView [items]="ItemAllInfo[0].ItemPrice">
-                                                                        <ListViewLinearLayout tkListViewLayout
-                                                                            scrollDirection="Horizontal">
-                                                                        </ListViewLinearLayout>
-                                                                        <ng-template let-item="item" let-i="index">
-                                                                            <StackLayout>
-                                                                                <GridLayout marginTop='10'
-                                                                                    marginBottom='10'>
-                                                                                    <button [text]="item.size"
-                                                                                        [class.Selected]="i===defaultPrice"
-                                                                                        class="btnSize" marginLeft='10'
-                                                                                        (tap)="pricecount(i)"></button>
-                                                                                </GridLayout>
-                                                                            </StackLayout>
-                                                                        </ng-template>
-                                                                    </RadListView>
-                                                                </StackLayout>
-
-                                                                <StackLayout class="mainHeading" color="black"
-                                                                    height="12%" marginTop='3'>
-                                                                    <label text="Product Highlight" class="pro"></label>
-                                                                    <RadListView [items]="ItemAllInfo[0].proHighlight">
-                                                                        <ListViewLinearLayout tkListViewLayout
-                                                                            scrollDirection="Horizontal">
-                                                                        </ListViewLinearLayout>
-                                                                        <ng-template let-item="item" let-i="index">
-                                                                            <StackLayout>
-                                                                                <GridLayout rows="*,*" class="proHigh">
-                                                                                    <label row="0" [text]="item.heading"
-                                                                                        color="gray" class="temp"
-                                                                                        width="110">
-                                                                                    </label>
-                                                                                    <label row="1" [text]="item.info"
-                                                                                        class="temp"
-                                                                                        width="110"></label>
-                                                                                </GridLayout>
-                                                                            </StackLayout>
-                                                                        </ng-template>
-                                                                    </RadListView>
-                                                                </StackLayout>
-
-                                                                <StackLayout class="delivery" height="15%" marginTop='3'
-                                                                    backgroundColor="white">
-                                                                    <label text="DELIVERY and Services For"
-                                                                        class="delSer">
-                                                                    </label>
-                                                                    <label *ngIf="checkSameDay()"
-                                                                        text="✔ Same Day delivery avialble"
-                                                                        color="black" marginTop="5"
-                                                                        marginLeft="10"></label>
-                                                                    <label *ngIf="midNights()"
-                                                                        text="✔ MidNight delivey avialble" color="black"
-                                                                        marginLeft="10" marginBottom='10'></label>
-
-                                                                </StackLayout>
-
-                                                                <StackLayout>
-                                                                    <GridLayout rows="15, auto" marginBottom="1"
-                                                                        backgroundColor="white" marginTop='3'>
-                                                                        <Label #label row="1"
-                                                                            text="Enter the Name to Print On Cake"
-                                                                            opacity="1" fontSize="16" class="meg"
-                                                                            paddingTop="3" marginLeft="18"></Label>
-                                                                        <TextField #textField [secure]="secure" row="1"
-                                                                            marginBottom='10' (focus)="onFocus()"
-                                                                            (blur)="onBlur()" borderBottomWidth="1"
-                                                                            marginLeft='18' borderBottomColor="#cec8c8"
-                                                                            padding="1"></TextField>
-                                                                    </GridLayout>
-                                                                </StackLayout>
-
-                                                                <StackLayout height="50" class="delivery"
-                                                                    (tap)="onDest()" marginTop="3">
-
-                                                                    <label text="Product Details" width="80%"
-                                                                        class="details" marginBottom='10'></label>
-                                                                    <label text="+" width="20%" class="details"
-                                                                        marginBottom='10'></label>
-                                                                </StackLayout>
-
-                                                                <GridLayout *ngIf="dest" height="250"
-                                                                    class="mainHeading" backgroundColor="white">
-                                                                    <ListView [items]="ItemAllInfo[0].desc">
-
-                                                                        <ng-template let-item="item" let-i="index">
-
-                                                                            <StackLayout height="40">
-                                                                                <ScollView>
-
-                                                                                    <label [text]="item.heading"
-                                                                                        color="black"
-                                                                                        fontSize='16'></label>
-                                                                                    <label [text]="item.info"
-                                                                                        textWrap="true"
-                                                                                        marginLeft="15"></label>
-
-                                                                                </ScollView>
-                                                                            </StackLayout>
-
-                                                                        </ng-template>
-                                                                    </ListView>
-                                                                </GridLayout>
-
-                                                                <StackLayout height="7%" orientation="Horizontal"
-                                                                    class="delivery" marginTop="3">
-
-                                                                    <label text="More Information" width="80%"
-                                                                        class="details" marginBottom='10'></label>
-                                                                    <label text="+" width="20%" class="details"
-                                                                        marginBottom='10'></label>
-                                                                </StackLayout>
-
-                                                                <StackLayout class="mainHeading" marginTop='3'
-                                                                    height="320">
-                                                                    <Label text="Recommend Items" marginTop='5'></Label>
-                                                                    <RadListView [items]="recItem">
-                                                                        <ListViewLinearLayout tkListViewLayout
-                                                                            scrollDirection="Horizontal">
-                                                                        </ListViewLinearLayout>
-                                                                        <ng-template let-item="item" let-i="index">
-                                                                            <StackLayout>
-                                                                                <GridLayout>
-                                                                                    <StackLayout width='220'
-                                                                                        height='280'>
-                                                                                        <StackLayout class="recGrid"
-                                                                                            width="200" height="280">
-                                                                                            <Image [src]="item.itemUrl"
-                                                                                                width='200' height="200"
-                                                                                                stretch="aspectFill">
-                                                                                            </Image>
-                                                                                            <label
-                                                                                                [text]="item.itemName"
-                                                                                                marginLeft='10'
-                                                                                                color="black">
-                                                                                            </label>
-                                                                                            <label
-                                                                                                [text]="item.itemDesc"
-                                                                                                marginLeft='10'></label>
-                                                                                            <StackLayout
-                                                                                                orientation="Horizontal">
-                                                                                                <label
-                                                                                                    [text]="'₹'+ item.itemPrice"
-                                                                                                    color="black"
-                                                                                                    marginLeft='10'></label>
-                                                                                                <label
-                                                                                                    [text]="item.itemMRP"
-                                                                                                    *ngIf="checkRecSell(i)"
-                                                                                                    textDecoration="line-through"
-                                                                                                    marginLeft='10'></label>
-                                                                                                <label
-                                                                                                    *ngIf="checkRecSell(i)"
-                                                                                                    [text]="checkRecDis(i) +'%OFF'"
-                                                                                                    color="red"
-                                                                                                    marginLeft='10'></label>
-                                                                                            </StackLayout>
-
-                                                                                        </StackLayout>
-                                                                                    </StackLayout>
-                                                                                </GridLayout>
-                                                                            </StackLayout>
-                                                                        </ng-template>
-                                                                    </RadListView>
-                                                                </StackLayout>
-                                                            </StackLayout>
-                                                        </ng-template>
-                                                    </RadListView>
-                                                </StackLayout>
+                                                
                                             </StackLayout>
                                         </StackLayout>
                                     </GridLayout>
                                 </StackLayout>
                             </ng-template>
                         </RadListView>
-                    </StackLayout> -->
+                    </StackLayout>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
 
-        <StackLayout height="10%" verticalAlignment="bottom" orientation="horizontal">
+        <!-- <StackLayout height="10%" verticalAlignment="bottom" orientation="horizontal">
             <button text="WISHLIST" color="black" class="btnwish" width="50%">
             </button>
             <button text="ADD TO BAG" class="bagbtn" color="white" width="50%" height="100%"></button>
-        </StackLayout>
+        </StackLayout> -->
     </GridLayout>
 </Page>
