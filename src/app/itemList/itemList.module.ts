@@ -1,4 +1,4 @@
-
+import { HeaderModule } from './../shared/header/header.module';
 import { ItemListComponent } from './component/itemList.component';
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
@@ -6,8 +6,6 @@ import { NativeScriptCommonModule } from "@nativescript/angular";
 import { NativeScriptFormsModule } from "@nativescript/angular";
 import { ItemListRoutingModule } from './itemList-rouitng.module';
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
-
-
 
 @NgModule({
     bootstrap: [
@@ -18,7 +16,8 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
         NativeScriptFormsModule,
         HttpClientModule,
         ItemListRoutingModule,
-        NativeScriptUIListViewModule
+        NativeScriptUIListViewModule,
+        HeaderModule
     ],
     declarations: [
         ItemListComponent
@@ -29,4 +28,4 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
     ]
 })
 
-export class ItemListModule{ }
+export class ItemListModule { }

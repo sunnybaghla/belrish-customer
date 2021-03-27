@@ -1,215 +1,229 @@
-.page{
-    /* background-image: url("res://background"); */
-    background-size: cover;
+.page {
+    /* background-size: cover; */
     background-color: #f1f1f1;
-    /* background:linear-gradient(#8e0e00,#1f1c18); */
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
 }
 
-.slider{
-    height:200;
-    width:100%;
-    background: linear-gradient(320deg,#8BDE22,#23A6DB);
+.main-container {
+    width: 100%;
+    height: 82%;
+    vertical-align: bottom;
 }
 
-.specialAboutUsContainer{
-    width:95%;
+.radlist-cnt {
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
 }
 
-.specialAboutUs{
-    width:25%;
-    height:100%;
+.categoryInnerCnt {
+    width: 22%;
+    padding: 0;
 }
 
-.specialAboutUsImage{
-    width:95%;
-    height:90%;
-    border-radius:15%;
-    margin-top: 5%;
+.categoryName {
+    color: #4d4d4d;
+    font-size: 12%;
+    font-weight: 500;
+    text-align: center;
 }
 
-.festivalOfferContainer{
-    width:95%;
+.categoryImage {
+    stretch: aspectFill;
 }
 
-.festivalOfferImage{
-    width:100%;
-    height:100%;
+.slider {
+    height: 200;
+    width: 100%;
+    background: linear-gradient(320deg, #8BDE22, #23A6DB);
 }
 
-.sendCakesHeading{
-    width:95%;
-    color:#690009;
+.specialAboutUsContainer {
+    width: 95%;
+}
+
+.specialAboutUs {
+    width: 100%;
+}
+
+.specialAboutUsImage {
+    /* width: 100%; */
+    border-radius: 5;
+}
+
+.festivalOfferContainer {
+    width: 95%;
+}
+
+.festivalOfferImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 5;
+}
+
+.sendCakesHeading {
+    width: 95%;
+    color: #690009;
     font-size: 20%;
     font-weight: 500;
     text-align: left;
 }
 
-.sendCakesContainer{
-    width:100%;
+.sendCakesContainer {
+    width: 100%;
     background-color: #ffffff;
 }
 
-.sendCakesContainer1{
-    height:50%;
-    width:100%;
+.sendCakesContainer1 {
+    width: 100%;
 }
 
-.categoryName{
-    color:#4d4d4d;
-    font-size: 12%;
-    font-weight:500;
-    text-align: center;
+.sendCakesContainer11 {
+    background-color: #ffffff;
+    border-radius: 5;
 }
 
-.sendCakesContainer11{
-    width:30%;
-    height:80%;
+.topTrendyContainer11 {
+    width: 23%;
+    height: 70%;
     background-color: #ffffff;
     border-radius: 10;
 }
 
-
-.topTrendyContainer11{
-    width:23%;
-    height:70%;
-    background-color: #ffffff;
-    border-radius: 10;
+.sendCakesImage {
+    width: 100%;
+    border-radius: 5;
 }
 
-.sendCakesImage{
-    width:100%;
-    border-radius:15%;
-}
-
-.sendCakesName{
+.sendCakesName {
     font-size: 12%;
-    color:#4d4d4d;
+    color: #4d4d4d;
     font-weight: bold;
     text-align: center;
 }
 
-.viewAll{
-    width:17%;
-    horizontal-alignment:right;
+.viewAll {
+    width: 17%;
+    horizontal-alignment: right;
     background-color: #690009;
     margin-right: 2%;
-    color:#ffffff;
+    color: #ffffff;
     font-size: 10%;
     border-radius: 5;
     padding: 0;
 }
 
-.giftContainer{
-    width:95%;
+.giftContainer {
+    width: 95%;
 }
 
-.gift{
-    width:50%;
-    height:100%;
+.gift {
+    width: 50%;
+    height: 100%;
 }
 
-.giftImage{
-    width:90%;
-    height:90%;
-    border-radius:15%;
+.giftImage {
+    width: 90%;
+    height: 90%;
+    border-radius: 15%;
     background-color: white;
+    border-radius: 5;
 }
 
-.occassionHeadingContainer{
-    width:95%;
+.occassionHeadingContainer {
+    width: 95%;
     vertical-align: middle;
 }
 
-.occassionHeading{
-    width:100%;
-    color:#690009;
+.occassionHeading {
+    width: 100%;
+    color: #690009;
     font-size: 20%;
     font-weight: 500;
     text-align: left;
 }
 
-.occassionContainer{
-    width:95%;
+.occassionContainer {
+    width: 100%;
 }
 
-.occassion{
-    height:90%;
-    width:30%;
-    border-radius:15%;
+.occassion {
+    border-radius: 5;
     background-color: white;
 }
 
-.occassionImage{
-    width:90%;
-    height:80%;
+.occassionImage {
+    height: 80%;
+    border-radius: 5;
 }
 
-.occassionName{
-    width:90%;
+.occassionName {
+    width: 90%;
     text-align: center;
     font-size: 12%;
     font-weight: bold;
-    color:#4d4d4d;
+    color: #4d4d4d;
+    padding: 0;
 }
 
-.view-button{
+.view-button {
     font-size: 18%;
     border-radius: 100;
-    background: linear-gradient(345deg,#8BDE22,#23A6DB);
+    background: linear-gradient(345deg, #8BDE22, #23A6DB);
     text-transform: initial;
-    color:white;
+    color: white;
     border-color: white;
-    border-width:1;
-    padding:0;
-    height:70%;
-    width:50%;
+    border-width: 1;
+    padding: 0;
+    height: 70%;
+    width: 50%;
 }
-.view-button:highlighted{
+
+.view-button:highlighted {
     background-color: white;
     border-color: #273BD3;
     color: #273BD3;
 }
 
-.findPerfectGift{
-    width:95%;
+.findPerfectGift {
+    width: 95%;
     background-color: #ffffff;
 }
 
-.findPerfectGift1{
-    height:100%;
-    width:20%;
+.findPerfectGift1 {
+    height: 100%;
+    width: 20%;
     background-color: #f1f1f1;
 }
 
-.findPerfectGift11{
-    width:80%;
+.findPerfectGift11 {
+    width: 80%;
 }
 
-.findPerfectGift2{
+.findPerfectGift2 {
     width: 60%;
     margin-left: 5%;
     vertical-align: middle;
 }
 
-.findPerfectGift21{
+.findPerfectGift21 {
     font-size: 14%;
     font-weight: bold;
-    color:#690009;
+    color: #690009;
 }
 
-.findPerfectGift22{
+.findPerfectGift22 {
     font-size: 12%;
     font-weight: 500;
-    color:#d4d4d4;
+    color: #d4d4d4;
 }
 
-.findPerfectGift3{
-    width:10%;
+.findPerfectGift3 {
+    width: 10%;
     margin-left: 5%;
 }
 
-.findPerfectGift31{
-    width:50%;
+.findPerfectGift31 {
+    width: 50%;
 }

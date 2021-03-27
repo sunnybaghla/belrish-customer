@@ -1,34 +1,31 @@
-<page height="100%" width="100%">
+<Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:VideoPlayer="nativescript-videoplayer">
+    <GridLayout class="main">
+        <!-- <StackLayout *ngIf="flag" height="100%" marginLeft="5%" marginRight="5%" backgroundColor="white">
+        <Image src="https://pngimage.net/wp-content/uploads/2018/05/close-png-7.png" (tap)="flagFalse()" marginTop="5%"
+            marginLeft="80%" height="30" width="50"></Image>
+        <Carousel #myCarousel debug="true" [items]="ItemAllInfo[0].imageUrl" height="60%" width="100%"
+            android:indicatorAnimation="scale " indicatorRadius='4' indicatorColor="red" indicatorOffset="50,50"
+            showIndicator="true" indicatorColorUnselected="blue">
+            <CarouselItem *ngFor="let item of ItemAllInfo[0].imageUrl; index as i">
+                <GridLayout>
+                    <ng-container *ngIf="chkImgVid(i); else video">
+                        <Image [src]="item" stretch="aspectFill" height="300"></Image>
+                    </ng-container>
+                    <ng-template #video>
+                        <VideoPlayer #player [src]="item" autoplay="true" controls="false" fill="true" muted="true"
+                            height="300"></VideoPlayer>
+                    </ng-template>
 
-    <StackLayout height="100%">
-        <StackLayout *ngIf="flag" height="100%" marginLeft="5%" marginRight="5%" backgroundColor="white">
-            <!-- <StackLayout width="80%"> -->
-            <Image src="https://pngimage.net/wp-content/uploads/2018/05/close-png-7.png" (tap)="flagFalse()"
-                marginTop="5%" marginLeft="80%" height="30" width="50"></Image>
+                </GridLayout>
+            </CarouselItem>
+        </Carousel>
+    </StackLayout> -->
 
-            <Carousel #myCarousel debug="true" [items]="ItemAllInfo[0].imageUrl" height="60%" width="100%"
-                android:indicatorAnimation="scale " indicatorRadius='4' indicatorColor="red" indicatorOffset="50,50"
-                showIndicator="true" indicatorColorUnselected="blue">
-                <CarouselItem *ngFor="let item of ItemAllInfo[0].imageUrl; index as i">
-                    <GridLayout>
-                        <ng-container *ngIf="chkImgVid(i); else video">
-                            <Image [src]="item" stretch="aspectFill" height="300"></Image>
-                        </ng-container>
-                        <ng-template #video>
-                            <VideoPlayer #player [src]="item" autoplay="true" controls="false" fill="true" muted="true"
-                                height="300"></VideoPlayer>
-                        </ng-template>
-
-                    </GridLayout>
-                </CarouselItem>
-            </Carousel>
-        </StackLayout>
-
-        <StackLayout class="mains" width="100%" height="80%">
+        <StackLayout class="mains" width="100%" height="90%" padding="0">
             <ScrollView #scrollView (scroll)="onScroll($event, scrollView, topView)">
                 <StackLayout orientation="vertical">
                     <StackLayout height='10%'>
-                        <GridLayout #topView height='380' (tap)="ontap()">
+                        <GridLayout #topView [height]="screenHeight*0.40" (tap)="ontap()">
                             <Carousel #myCarousel debug="true" [items]="ItemAllInfo[0].imageUrl" height="100%"
                                 width="100%" color="white" (pageChanged)="myChangePageEvent($event)"
                                 android:indicatorAnimation="scale" indicatorColor="red" indicatorOffset="0, -10"
@@ -40,9 +37,9 @@
                                             <Image [src]="item" stretch="aspectFill"></Image>
                                         </ng-container>
                                         <ng-template id="video">
-                                            <VideoPlayer id="player" [src]="item" autoplay="true" controls="false"
-                                                fill="true" muted="true" height="300">
-                                            </VideoPlayer>
+                                        <VideoPlayer:Video id="player" [src]="item" autoplay="true" controls="false"
+                                            fill="true" muted="true" height="200">
+                                        </VideoPlayer:Video>
                                         </ng-template>
                                     </GridLayout>
                                 </CarouselItem>
@@ -73,7 +70,7 @@
                         </ListView>
                     </StackLayout>
 
-                    <StackLayout *ngIf="multiSize()" class="mainHeading" marginTop='3'>
+                    <!-- <StackLayout *ngIf="multiSize()" class="mainHeading" marginTop='3'>
                         <Label text="Quantity" marginTop='5'></Label>
                         <RadListView [items]="ItemAllInfo[0].ItemPrice">
                             <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal">
@@ -429,7 +426,7 @@
                                 </StackLayout>
                             </ng-template>
                         </RadListView>
-                    </StackLayout>
+                    </StackLayout> -->
                 </StackLayout>
             </ScrollView>
         </StackLayout>
@@ -439,5 +436,5 @@
             </button>
             <button text="ADD TO BAG" class="bagbtn" color="white" width="50%" height="100%"></button>
         </StackLayout>
-    </StackLayout>
-</page>
+    </GridLayout>
+</Page>

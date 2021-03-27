@@ -9,252 +9,178 @@
             <ns-footer></ns-footer>
         </StackLayout>
         <GridLayout width="100%" height="82%" verticalAlignment="bottom" [marginBottom]="screenHeight*0.06">
-            <ScrollView>
-                <StackLayout>
-                    <GridLayout class="categoryContainer" [height]="screenHeight*0.10" [marginTop]="screenHeight*0.02">
-                        <RadListView *ngFor="let item of topList " verticalAlignment="middle"> -->
-                            <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal">
-                            </ListViewLinearLayout> -->
-                            <ng-template let-item="item" let-i="index">
-                                <StackLayout [width]="screenWidth*0.20">
-                                    <!-- <Image row="0" [src]="topImg[0]" [borderRadius]="screenHeight*0.03"
-                                        [height]="screenWidth*0.12" [width]="screenWidth*0.12"></Image> -->
-                                    <!-- <Image stretch="aspectFill" [src]="topImg[0]" verticalAlignment="middle"></Image> -->
-                                    
-                                    <Label row="1" class="categoryName" [text]="item.name"></Label>
-                                </StackLayout>
-                            </ng-template>
-                        </RadListView>
-                    </GridLayout>
-                    <Carousel #myCarousel android:indicatorAlignment="top" showIndicator="false"
-                        [selectedPage]="selectedPage" [height]="screenHeight*0.13" [marginTop]="screenHeight*0.015"
-                        width="95%" indicatorColor="#8BDE22" android:indicatorAnimation="swap"
-                        indicatorColorUnselected="#23A6DB">
-                        <CarouselItem>
-                            <StackLayout width="100%" height="100%" verticalAlignment="middle">
-                                <Image stretch="aspectFill" [src]="sliderImg[0]" verticalAlignment="middle"></Image>
-                            </StackLayout>
-                        </CarouselItem>
-                        <CarouselItem>
-                            <StackLayout width="100%" height="100%" verticalAlignment="middle">
-                                <Image stretch="aspectFill" [src]="sliderImg[1]"></Image>
-                            </StackLayout>
-                        </CarouselItem>
-                        <CarouselItem>
-                            <StackLayout width="100%" height="100%" verticalAlignment="middle">
-                                <Image stretch="aspectFill" [src]="sliderImg[2]"></Image>
-                            </StackLayout>
-                        </CarouselItem>
-                        <CarouselItem>
-                            <StackLayout width="100%" height="100%" verticalAlignment="middle">
-                                <Image stretch=" aspectFill" [src]="sliderImg[3]">
-                                </Image>
-                            </StackLayout>
-                        </CarouselItem>
-                    </Carousel>
-                    <GridLayout class="findPerfectGift" [height]="screenHeight*0.10" [marginTop]="screenHeight*0.02"
-                        androidElevation="5" columns="auto,auto,auto">
-                        <GridLayout col="0" class="findPerfectGift1">
-                            <Image [src]="categoriesImg[0]" class="findPerfectGift11"></Image>
+            <!-- <ScrollView> -->
+            <RadListView [items]="[{}]">
+                <ng-template>
+                    <StackLayout>
+                        <GridLayout class="categoryContainer" [marginTop]="screenHeight*0.02">
+                            <RadListView [items]="topList" class="radlist-cnt">
+                                <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal">
+                                </ListViewLinearLayout>
+                                <ng-template let-item="item" let-i="index">
+                                    <StackLayout class="categoryInnerCnt" [width]="screenWidth*0.20"
+                                        orientation="vertical">
+                                        <Image class="categoryImage" [src]="item.imgpath"
+                                            [borderRadius]="screenWidth*0.10" [height]="screenWidth*0.15"
+                                            [width]="screenWidth*0.15">
+                                        </Image>
+                                        <Label class="categoryName" [text]="item.name"></Label>
+                                    </StackLayout>
+                                </ng-template>
+                            </RadListView>
                         </GridLayout>
-                        <StackLayout col="1" class="findPerfectGift2">
-                            <Label [text]="catPhotoImg[0].name " class="findPerfectGift21"></Label>
-                            <Label text="Discover Gifts by Recipient, Relationships & Occasions." textWrap="true"
-                                class="findPerfectGift22"></Label>
-                        </StackLayout>
-                        <GridLayout col="2" class="findPerfectGift3">
-                            <Image src="res://next" class="findPerfectGift31"></Image>
+                        <Carousel #myCarousel android:indicatorAlignment="top" showIndicator="false"
+                            [selectedPage]="selectedPage" [height]="screenHeight*0.13" [width]="screenWidth"
+                            indicatorColor="#8BDE22" android:indicatorAnimation="swap"
+                            indicatorColorUnselected="#23A6DB">
+                            <CarouselItem>
+                                <Image stretch="aspectFill" [src]="sliderImg[0].imgpath" verticalAlignment="middle">
+                                </Image>
+                            </CarouselItem>
+                            <CarouselItem>
+                                <Image stretch="aspectFill" [src]="sliderImg[1].imgpath" verticalAlignment="middle">
+                                </Image>
+                            </CarouselItem>
+                            <CarouselItem>
+                                <Image stretch="aspectFill" [src]="sliderImg[2].imgpath" verticalAlignment="middle">
+                                </Image>
+                            </CarouselItem>
+                            <CarouselItem>
+                                <Image stretch="aspectFill" [src]="sliderImg[3].imgpath" verticalAlignment="middle">
+                                </Image>
+                            </CarouselItem>
+                        </Carousel>
+                        <GridLayout class="findPerfectGift" [height]="screenHeight*0.10" [marginTop]="screenHeight*0.01"
+                            androidElevation="5" columns="auto,auto,auto">
+                            <GridLayout col="0" class="findPerfectGift1">
+                                <Image [src]="categoriesImg[0].imgpath" class="findPerfectGift11"></Image>
+                            </GridLayout>
+                            <StackLayout col="1" class="findPerfectGift2">
+                                <Label [text]="catPhotoImg[0].name " class="findPerfectGift21"></Label>
+                                <Label text="Discover Gifts by Recipient, Relationships & Occasions." textWrap="true"
+                                    class="findPerfectGift22"></Label>
+                            </StackLayout>
+                            <GridLayout col="2" class="findPerfectGift3">
+                                <Image src="res://next" class="findPerfectGift31"></Image>
+                            </GridLayout>
                         </GridLayout>
-                    </GridLayout>
-                    <GridLayout class="sendCakesContainer" [marginTop]="screenHeight*0.02" rows="auto,auto,auto">
-                        <Label row="0" class="sendCakesHeading" [text]="browseCategoryHeading"
-                            [marginTop]="screenHeight*0.01"></Label>
-                        <Button row="0" class="viewAll" text="VIEW ALL" [height]="screenHeight*0.03"
-                            [marginTop]="screenHeight*0.01"></Button>
-                        <GridLayout row="1" class="sendCakesContainer1" columns="*,*,*">
-
-                            <StackLayout class="sendCakesContainer11" col="0" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="categoriesImg[0]">
-                                </Image>
-                                <Label class="sendCakesName" [text]="categoriesList[0].name"></Label>
-                            </StackLayout>
-                            <StackLayout class="sendCakesContainer11" col="1" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="categoriesImg[1]">
-                                </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
-                            </StackLayout>
-                            <StackLayout class="sendCakesContainer11" col="2" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="categoriesImg[2]">
-                                </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
-                            </StackLayout>
+                        <GridLayout class="specialAboutUsContainer" [height]="screenWidth*0.25"
+                            [marginTop]="screenHeight*0.02">
+                            <RadListView [items]="box4List" class="radlist-cnt">
+                                <ListViewStaggeredLayout tkListViewLayout spanCount="4">
+                                </ListViewStaggeredLayout>
+                                <ng-template tkListItemTemplate let-item="item" let-i="index">
+                                    <StackLayout class="specialAboutUs" [height]="screenWidth*0.24"
+                                        [width]="screenWidth*0.24">
+                                        <Image class="specialAboutUsImage" [height]="screenWidth*0.24"
+                                            [width]="screenWidth*0.24" [src]="item.imgpath" stretch="aspectFill">
+                                        </Image>
+                                    </StackLayout>
+                                </ng-template>
+                            </RadListView>
                         </GridLayout>
-                        <GridLayout row="2" class="sendCakesContainer1" columns="*,*,*">
-                            <StackLayout class="sendCakesContainer11" col="0" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="categoriesImg[3]">
-                                </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
-                            </StackLayout>
-                            <StackLayout class="sendCakesContainer11" col="1" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="categoriesImg[4]">
-                                </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
-                            </StackLayout>
-                            <StackLayout class="sendCakesContainer11" col="2" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="categoriesImg[5]">
-                                </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
-                            </StackLayout>
+                        <GridLayout class="sendCakesContainer" [marginTop]="screenHeight*0.02" rows="auto,auto">
+                            <Label row="0" class="sendCakesHeading" [text]="browseCategoryHeading"
+                                [marginTop]="screenHeight*0.01"></Label>
+                            <Button row="0" class="viewAll" text="VIEW ALL" [height]="screenHeight*0.03"
+                                [marginTop]="screenHeight*0.01"></Button>
+                            <GridLayout row="1" class="sendCakesContainer1" [marginTop]="screenHeight*0.01">
+                                <RadListView [items]="categoriesImg" class="radlist-cnt">
+                                    <ListViewStaggeredLayout tkListViewLayout spanCount="3">
+                                    </ListViewStaggeredLayout>
+                                    <ng-template tkListItemTemplate let-item="item" let-i="index">
+                                        <StackLayout class="sendCakesContainer11" orientation="vertical">
+                                            <Image class="sendCakesImage" [src]="item.imgpath"
+                                                [width]="screenWidth*0.30" [height]="screenWidth*0.30"
+                                                stretch="aspectFill">
+                                            </Image>
+                                            <Label class="sendCakesName" [text]="item.name"></Label>
+                                        </StackLayout>
+                                    </ng-template>
+                                </RadListView>
+                            </GridLayout>
                         </GridLayout>
-                    </GridLayout>
-                    <GridLayout class="specialAboutUsContainer" columns="*,*,*,*" [height]="screenHeight*0.10"
-                        [marginTop]="screenHeight*0.02">
-                        <StackLayout class="specialAboutUs" col="0" verticalAlignment="middle">
-                            <Image class="specialAboutUsImage" [src]="box4Img[0]">
+                        <GridLayout class="sendCakesContainer" [marginTop]="screenHeight*0.02" rows="auto,auto,auto">
+                            <Label row="0" class="sendCakesHeading" [text]="sendCakesHeading"
+                                [marginTop]="screenHeight*0.01"></Label>
+                            <Button row="0" class="viewAll" text="VIEW ALL" [height]="screenHeight*0.03"
+                                [marginTop]="screenHeight*0.01"></Button>
+                            <GridLayout row="1" class="sendCakesContainer1" [marginTop]="screenHeight*0.01">
+                                <RadListView [items]="byFlavourList" class="radlist-cnt">
+                                    <ListViewStaggeredLayout tkListViewLayout spanCount="3">
+                                    </ListViewStaggeredLayout>
+                                    <ng-template tkListItemTemplate let-item="item" let-i="index">
+                                        <StackLayout class="sendCakesContainer11" orientation="vertical">
+                                            <Image class="sendCakesImage" [src]="item.imgpath"
+                                                [width]="screenWidth*0.30" [height]="screenWidth*0.30"
+                                                stretch="aspectFill">
+                                            </Image>
+                                            <Label class="sendCakesName" [text]="item.name"></Label>
+                                        </StackLayout>
+                                    </ng-template>
+                                </RadListView>
+                            </GridLayout>
+                        </GridLayout>
+                        <GridLayout class="occassionHeadingContainer" [marginTop]="screenHeight*0.02">
+                            <Label class="occassionHeading" [text]="occassionHeading"></Label>
+                            <Button row="0" class="viewAll" text="VIEW ALL" [height]="screenHeight*0.03"></Button>
+                        </GridLayout>
+                        <GridLayout class="occassionContainer" [marginTop]="screenHeight*0.01">
+                            <RadListView [items]="byOccasionList" class="radlist-cnt">
+                                <ListViewStaggeredLayout tkListViewLayout spanCount="3">
+                                </ListViewStaggeredLayout>
+                                <ng-template tkListItemTemplate let-item="item" let-i="index">
+                                    <StackLayout class="occassion" androidElevation="5" [width]="screenWidth*0.30"
+                                        [height]="screenWidth*0.30" padding="0" [marginTop]="screenHeight*0.01"
+                                        [marginBottom]="screenHeight*0.01">
+                                        <Image class="occassionImage" [src]="item.imgpath" stretch="aspectFill">
+                                        </Image>
+                                        <Label class="occassionName" [text]="item.name"></Label>
+                                    </StackLayout>
+                                </ng-template>
+                            </RadListView>
+                        </GridLayout>
+                        <GridLayout class="sendCakesContainer" [marginTop]="screenHeight*0.02" rows="auto,auto,auto">
+                            <Label row="0" class="sendCakesHeading" [text]="topTrendyHeading"
+                                [marginTop]="screenHeight*0.01"></Label>
+                            <Button row="0" class="viewAll" text="VIEW ALL" [height]="screenHeight*0.03"
+                                [marginTop]="screenHeight*0.01"></Button>
+                            <GridLayout row="1" class="sendCakesContainer1" [marginTop]="screenHeight*0.01">
+                                <RadListView [items]="topTrendy" class="radlist-cnt">
+                                    <ListViewStaggeredLayout tkListViewLayout spanCount="4">
+                                    </ListViewStaggeredLayout>
+                                    <ng-template tkListItemTemplate let-item="item" let-i="index">
+                                        <StackLayout class="sendCakesContainer11" [height]="screenWidth*0.24"
+                                            [width]="screenWidth*0.24">
+                                            <Image class="sendCakesImage" [src]="item.imgpath"
+                                                [height]="screenWidth*0.24" [width]="screenWidth*0.24"
+                                                stretch="aspectFill">
+                                            </Image>
+                                        </StackLayout>
+                                    </ng-template>
+                                </RadListView>
+                            </GridLayout>
+                        </GridLayout>
+                        <GridLayout class="festivalOfferContainer" [height]="screenHeight*0.10"
+                            [marginTop]="screenHeight*0.02">
+                            <Image class="festivalOfferImage" stretch="fill" src="res://slider2" androidElevation="5">
                             </Image>
-                        </StackLayout>
-                        <StackLayout class="specialAboutUs" col="1" verticalAlignment="middle">
-                            <Image class="specialAboutUsImage" [src]="box4Img[1]">
-                            </Image>
-                        </StackLayout>
-                        <StackLayout class="specialAboutUs" col="2" verticalAlignment="middle">
-                            <Image class="specialAboutUsImage" [src]="box4Img[2]">
-                            </Image>
-                        </StackLayout>
-                        <StackLayout class="specialAboutUs" col="3" verticalAlignment="middle">
-                            <Image class="specialAboutUsImage" [src]="box4Img[3]">
-                            </Image>
-                        </StackLayout>
-                    </GridLayout>
-                    <!-- <GridLayout class="festivalOfferContainer">
-                        <Image class="festivalOfferImage" src="res://slider2">
-                        </Image>
-                    </GridLayout> -->
-                    <GridLayout class="sendCakesContainer" [marginTop]="screenHeight*0.02" rows="auto,auto,auto">
-                        <Label row="0" class="sendCakesHeading" [text]="sendCakesHeading"
-                            [marginTop]="screenHeight*0.01"></Label>
-                        <Button row="0" class="viewAll" text="VIEW ALL" [height]="screenHeight*0.03"
-                            [marginTop]="screenHeight*0.01"></Button>
-                        <GridLayout row="1" class="sendCakesContainer1" columns="*,*,*">
-                            <StackLayout class="sendCakesContainer11" col="0" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="byfalvourImg[0]">
-                                </Image>
-                                <Label class="sendCakesName" [text]="byFlavourList[0].name"></Label>
-                            </StackLayout>
-                            <StackLayout class="sendCakesContainer11" col="1" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="byfalvourImg[1]">
-                                </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
-                            </StackLayout>
-                            <StackLayout class="sendCakesContainer11" col="2" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="byfalvourImg[2]">
-                                </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
-                            </StackLayout>
                         </GridLayout>
-                        <GridLayout row="2" class="sendCakesContainer1" columns="*,*,*">
-                            <StackLayout class="sendCakesContainer11" col="0" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="byfalvourImg[3]">
+                        <GridLayout class="giftContainer" columns="*,*" [height]="screenHeight*0.15"
+                            [marginTop]="screenHeight*0.02">
+                            <StackLayout class="gift" col="0">
+                                <Image class="giftImage" [src]="topTrendy[0].imgpath">
                                 </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
                             </StackLayout>
-                            <StackLayout class="sendCakesContainer11" col="1" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="byfalvourImg[4]">
+                            <StackLayout class="gift" col="1">
+                                <Image class="giftImage" [src]="topTrendy[1].imgpath">
                                 </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
-                            </StackLayout>
-                            <StackLayout class="sendCakesContainer11" col="2" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="byfalvourImg[5]">
-                                </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
                             </StackLayout>
                         </GridLayout>
-                    </GridLayout>
-                     <GridLayout class="occassionHeadingContainer" [marginTop]="screenHeight*0.02">
-                        <Label class="occassionHeading" [text]="occassionHeading"></Label>
-                        <Button row="0" class="viewAll" text="VIEW ALL" [height]="screenHeight*0.03"></Button>
-                    </GridLayout>
-                    <GridLayout class="occassionContainer" columns="*,*,*" [height]="screenHeight*0.15"
-                        [marginTop]="screenHeight*0.01">
-                        <StackLayout class="occassion" col="0" verticalAlignment="middle" androidElevation="5">
-                            <Image class="occassionImage" [src]="byOccasionList[0]">
-                            </Image>
-                            <Label class="occassionName" [text]="byOccasionList[0].name"></Label>
-                        </StackLayout>
-                        <StackLayout class="occassion" col="1" verticalAlignment="middle" androidElevation="5">
-                            <Image class="occassionImage" [src]="byOccasionImg[1]">
-                            </Image>
-                            <Label class="occassionName" text="Birthday"></Label>
-                        </StackLayout>
-                        <StackLayout class="occassion" col="2" verticalAlignment="middle" androidElevation="5">
-                            <Image class="occassionImage" [src]="byOccasionImg[1]">
-                            </Image>
-                            <Label class="occassionName" text="Christmas"></Label>
-                        </StackLayout>
-
-                    </GridLayout>
-                    <GridLayout class="sendCakesContainer" [marginTop]="screenHeight*0.02" rows="auto,auto,auto">
-                        <Label row="0" class="sendCakesHeading" [text]="topTrendyHeading"
-                            [marginTop]="screenHeight*0.01"></Label>
-                        <Button row="0" class="viewAll" text="VIEW ALL" [height]="screenHeight*0.03"
-                            [marginTop]="screenHeight*0.01"></Button>
-                        <GridLayout row="1" class="sendCakesContainer1" columns="*,*,*,*">
-                            <StackLayout class="topTrendyContainer11" col="0" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage1">
-                                </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
-                            </StackLayout>
-                            <StackLayout class="topTrendyContainer11" col="1" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage2">
-                                </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
-                            </StackLayout>
-                            <StackLayout class="topTrendyContainer11" col="2" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage3">
-                                </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
-                            </StackLayout>
-                            <StackLayout class="topTrendyContainer11" col="3" verticalAlignment="middle"
-                                androidElevation="5" [marginTop]="screenHeight*0.01" [marginBottom]="screenHeight*0.01">
-                                <Image class="sendCakesImage" [src]="specialImage3">
-                                </Image>
-                                <Label class="sendCakesName" text="EGGLESS"></Label>
-                            </StackLayout>
-                        </GridLayout>
-                    </GridLayout>
-                    <GridLayout class="festivalOfferContainer" [height]="screenHeight*0.10"
-                        [marginTop]="screenHeight*0.02">
-                        <Image class="festivalOfferImage" stretch="fill" src="res://slider2" androidElevation="5">
-                        </Image>
-                    </GridLayout>
-                    <GridLayout class="giftContainer" columns="*,*" [height]="screenHeight*0.15"
-                        [marginTop]="screenHeight*0.02">
-                        <StackLayout class="gift" col="0">
-                            <Image class="giftImage" [src]="specialImage1">
-                            </Image>
-                        </StackLayout>
-                        <StackLayout class="gift" col="1">
-                            <Image class="giftImage" [src]="specialImage2">
-                            </Image>
-                        </StackLayout>
-                    </GridLayout>
-                </StackLayout>
-            </ScrollView>
+                    </StackLayout>
+                    <!-- </ScrollView> -->
+                </ng-template>
+            </RadListView>
         </GridLayout>
         <GridLayout *ngIf="isLoading" backgroundColor="transparent" width="100%" height="100%">
             <ActivityIndicator backgroundColor="transparent" horizontalAlignment="center" verticalAlignment="middle"

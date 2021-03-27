@@ -1,57 +1,37 @@
-<StackLayout>
-    <label class="lbl" [text]="ptv"></label>
-<GridLayout tkExampleTitle tkToggleNavButton height='90%' width="100%">
-    <RadListView [items]="itemsArray" itemLoading="onItemLoading">
-        
-        <ListViewStaggeredLayout tkListViewLayout scrollDirection="Vertical" >
-        </ListViewStaggeredLayout>
-        <ng-template tkListItemTemplate let-item="item" let-i="index">
-            <StackLayout orientation="vertical" class="mains"  >
-                         <StackLayout *ngIf="i===2" width="100%">
-                         <GridLayout class="ItemImg">
-
-                         </GridLayout>
+<Page actionBarHidden="true">
+    <GridLayout class="page">
+        <GridLayout #headerCard (loaded)="onHeaderLoaded($event)" verticalAlignment="top" [height]="screenHeight*0.12"
+            width="100%" androidElevation="5">
+            <ns-header></ns-header>
+        </GridLayout>
+        <GridLayout tkExampleTitle tkToggleNavButton height='88%' width="100%" verticalAlignment="bottom">
+            <RadListView [items]="items" itemLoading="onItemLoading">
+                <ListViewStaggeredLayout tkListViewLayout scrollDirection="Vertical">
+                </ListViewStaggeredLayout>
+                <ng-template tkListItemTemplate let-item="item" let-i="index">
+                    <StackLayout orientation="vertical" class="mains" [borderRightWidth]="i % 2 === 0?'0.2':'0'"
+                        (tap)="onItem()">
+                        <Image [height]="screenWidth*0.50" [width]="screenWidth*0.50" [src]="item.imgtemp" class="img">
+                        </Image>
+                        <Stacklayout orientation="vertical" class="detail-container">
+                            <Label [text]="item.name" class="name"></Label>
+                            <Label [text]="item.shortDescription" class="title"></Label>
+                            <Label *ngIf="item.mrp[0]===item.sellPrice[0]" [text]="'₹'+ item.sellPrice[0]" class="sell"
+                                color="black"></Label>
+                            <StackLayout *ngIf="!(item.mrp[0]===item.sellPrice[0])" orientation="horizontal"
+                                padding="0">
+                                <Label [text]="'₹' +item.sellPrice[0]" class="sell" color="black"></Label>
+                                <Label [text]="'₹'+ item.mrp[0]" class="mrp" textDecoration="line-through"></Label>
+                                <Label [text]="show(i)" class="off"></Label>
                             </StackLayout>
-
-            <GridLayout rows="*" columns="*" height="50%" marginLeft='0' marginTop='0'>
-                   
-
-                <Image stretch="aspectFit" row="0" col="0" [src]="item.itemImgSrc" class="img" ></Image>
-                <Image  row="0" col="0" [src]="item.itemImgSrc" class="trend"></Image>
-
-            </GridLayout>
-           
-            <Stacklayout height="80pt" orientation="vertical">
-                <StackLayout oreintation="horzontal">
-                    <Label  [text]="item.name" class="name"></Label>
-                    <label [text]="item.title" class="title" ></label>
-                </StackLayout>
-
-             <StackLayout orientation="vertical">
-                <StackLayout *ngIf="item.MRP ===item.SellPrice; then contentTemplate else threetemp">
-
-                 </StackLayout>
-                <ng-template #contentTemplate>
-                                <label [text]="'₹'+ item.SellPrice"  class="sell" color="black" ></label>
+                        </Stacklayout>
+                    </StackLayout>
                 </ng-template>
-                <ng-template #threetemp>
-                            <StackLayout orientation="horizontal">
-                                
-                                <label [text]="'₹' +item.SellPrice"  class="sell"  color="black" ></label>
-                                <label [text]="'₹'+ item.MRP"  class="mrp" textDecoration="line-through" ></label>
-                                <label [text]="show(i)"  class="off"></label>
-                            </StackLayout>
-                            
-                 </ng-template>
-                </StackLayout>
-            </Stacklayout>
-         </StackLayout>
-
-
-
-
-        </ng-template>
-
-    </RadListView>
-</GridLayout>
-</StackLayout>
+            </RadListView>
+        </GridLayout>
+        <GridLayout *ngIf="isLoading" class="loading-container">
+            <ActivityIndicator [busy]="isLoading"></ActivityIndicator>
+            <!-- <Image class="loading-icon" id="loadingIconId" [src]="loadingIcon" [width]="screenWidth*0.10"></Image> -->
+        </GridLayout>
+    </GridLayout>
+</Page>

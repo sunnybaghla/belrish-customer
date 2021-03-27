@@ -1,110 +1,106 @@
-.mains
-{
-    background: whitesmoke;
-    
+.page {
+    width: 100%;
+    height: 100%;
 }
-.imgGrid
-{
+
+.mains {
+    background: whitesmoke;
+}
+
+.imgGrid {
     background: whitesmoke;
     background-color: whitesmoke;
-    
 }
-.sell
-{
-    font-family: 'Bangers', cursive;
-    font-family: 'Quicksand', sans-serif;;
-}
-.details
-{
 
+.sell {
+    font-family: 'Bangers', cursive;
+    font-family: 'Quicksand', sans-serif;
+    ;
+}
+
+.details {
     text-align: center;
     font-size: 14px;
     margin-top: 10%;
-    
-    
 }
-.img
-{
+
+.img {
     background: whitesmoke;
     background-color: whitesmoke;
     height: 80%;
     color: whitesmoke;
 }
-.recGrid
-{
-    border:whitesmoke;
+
+.recGrid {
+    border: whitesmoke;
     border-width: 0.0001;
     /* color: transparent; */
-    
 }
-.mainHeading
-{
-    background:white;
-    
+
+.mainHeading {
+    background: white;
     width: 100%;
     padding-left: 10%;
-
 }
-.list{
+
+.list {
     padding-left: 5%;
 }
-.delSer
-{
+
+.delSer {
     color: gray;
 }
-.temp
-{
-    width:15%;
+
+.temp {
+    width: 15%;
 }
-.proHigh
-{
+
+.proHigh {
     /* width: 25pt; */
     padding-top: 10%;
     padding-bottom: 10%;
-    
-    
 }
-.meg
-{
+
+.meg {
     padding-top: 10%;
 }
-.btn
-{
+
+.btn {
     height: 100%;
     width: 100%;
 }
-.bagbtn
-{
-    background:rgb(220,20,60);
+
+.bagbtn {
+    background: rgb(220, 20, 60);
 }
-.pro
-{
+
+.pro {
     text-align: center;
-        padding-top: 5%;
-        font-size: large;
-        color: gray;
+    padding-top: 5%;
+    font-size: large;
+    color: gray;
     /* margin-left: 50%; */
 }
-.btnwish
-{
+
+.btnwish {
     background: white;
 }
-.delivery
-{
+
+.delivery {
     background: white;
     padding-left: 10%;
     padding-top: 7%;
     color: black;
     font-weight: 900;
 }
-.messge
-{
+
+.messge {
     background: whitesmoke;
 }
-.btnSize
-{
+
+.btnSize {
     background: white;
-    border-color:black;
+    border-color: black;
     border-width: 2px;
     border-radius: 60%;
     margin-top: 2%;
@@ -112,12 +108,11 @@
     padding-left: 2%;
     padding-bottom: 10;
     color: gainsboro;
-    
-    
 }
-.Selected{
+
+.Selected {
     background: white;
-    border-color:red;
+    border-color: red;
     border-width: 2px;
     border-radius: 60%;
     margin-top: 2%;
@@ -125,5 +120,4 @@
     padding-left: 2%;
     padding-bottom: 10;
     color: blue;
-
 }

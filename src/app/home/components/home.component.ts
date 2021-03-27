@@ -6,6 +6,7 @@ const firebase = require("@nativescript/firebase/app");
 import { Observable } from "rxjs";
 import { RouterExtensions } from '@nativescript/angular';
 import { Color, ObservableArray, Page } from '@nativescript/core';
+import { FirestoreService } from '../../services/firestore.service';
 
 declare const android: any;
 declare const CGSizeMake: any;
@@ -32,8 +33,6 @@ export class HomeComponent implements OnInit, AfterContentInit {
     sendCakesHeading: string;
     specialImage1: string;
     specialImage2: string;
-    specialImage3: string;
-    specialImage4: string;
     occassionHeading: string;
     screenHeight: number;
     screenWidth: number;
@@ -49,7 +48,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
     //top 
     topCollection;
     topImg = [];
-    topList = [];
+    topList: any;
     //sliderphoto
     sliderCollection;
     sliderImg = [];
@@ -65,26 +64,28 @@ export class HomeComponent implements OnInit, AfterContentInit {
     box4List = [];
     //cakes by flavour
     byFlavourCollection;
-    byfalvourImg = [];
+    byflavourImg = [];
     byFlavourList = [];
     //byoccasion
     byOccasionCollection;
     byOccasionImg = [];
     byOccasionList = [];
+    topTrendy: any;
     citiesCollection = firebase.firestore().collection("home").doc("box4").collection("box4");
     cityList: ObservableArray<({ city: string })>
+    firestoreService: FirestoreService;
 
     constructor(private routerExtensions: RouterExtensions, private page: Page,) {
-        this.topCollection = firestore.collection("home").doc("byCategory").collection("byCategory");
-        // this.categoriesCollection = firebase.firestore().collection("home").doc("byCategory").collection("byCategory");
-        // this.box4Collection = firebase.firestore().collection("home").doc("box4").collection("box4");
-        // this.byFlavourCollection = firebase.firestore().collection("home").doc("byflavour").collection("byflavour");
-        // this.byOccasionCollection = firebase.firestore().collection("home").doc("byOccasion").collection("byOccasion");
-        // this.sliderCollection = firebase.firestore().collection("home").doc("slider").collection("slider");
-        //   console.log(this.categories[0].name);
-        this.page.actionBarHidden = true;
         this.screenHeight = ScreenDimensions.getheight(100);
         this.screenWidth = ScreenDimensions.getwidth(100);
+        this.topCollection = firestore.collection("home").doc("byCategory").collection("byCategory");
+        this.categoriesCollection = firebase.firestore().collection("home").doc("byCategory").collection("byCategory");
+        this.box4Collection = firebase.firestore().collection("home").doc("box4").collection("box4");
+        this.byFlavourCollection = firebase.firestore().collection("home").doc("byflavour").collection("byflavour");
+        this.byOccasionCollection = firebase.firestore().collection("home").doc("byOccasion").collection("byOccasion");
+        this.sliderCollection = firebase.firestore().collection("home").doc("slider").collection("slider");
+        //   console.log(this.categories[0].name);
+        this.page.actionBarHidden = true;
         this.page.on('navigatedTo', (data) => {
             if (data.isBackNavigation) {
 
@@ -102,13 +103,43 @@ export class HomeComponent implements OnInit, AfterContentInit {
         //     }
         // }, 6000);
     }
-    
+
     ngAfterContentInit(): void {
         // this.renderingTimeout = setTimeout(() => {
         //     this.isRendering = true;
         // }, 5000)
     }
     ngOnInit(): void {
+
+        this.topList = [];
+
+        this.topTrendy = [
+            { imgpath: 'res://gallery' },
+            { imgpath: 'res://gallery' },
+            { imgpath: 'res://gallery' },
+            { imgpath: 'res://gallery' },
+        ]
+
+        // this.topList = [
+        //     { image: 'res://slider2', name: 'Flower' },
+        //     { image: 'res://slider2', name: 'Wooden' },
+        //     { image: 'res://slider2', name: 'Sublimation' },
+        //     { image: 'res://slider2', name: 'Cake' },
+        //     { image: 'res://slider2', name: 'Handicraft' },
+        //     { image: 'res://slider2', name: 'Painting' }
+        // ]
+
+        // this.sliderImg = [
+        //     { imgpath: "res://slider2" },
+        //     { imgpath: "res://slider2" },
+        //     { imgpath: "res://slider2" },
+        //     { imgpath: "res://slider2" },
+        // ];
+
+        this.categoriesImg = [];
+
+        this.catPhotoImg = [{ name: "ghgh asdghg" }];
+
         // this.citiesCollection.get().then(querySnapshot => {
         //     querySnapshot.forEach(doc => {
 
@@ -136,176 +167,63 @@ export class HomeComponent implements OnInit, AfterContentInit {
         //     this.catPhotoImg = li;
         // }).catch(err => console.log("Get failed, error" + err));
 
-
-
-
         this.topCollection.get().then((querySnapshot: firestore.QuerySnapshot) => {
-            const li = [];
+            querySnapshot.forEach(doc => {
+                // var dataTosave = doc.data();
+                // dataTosave.id = doc.id;
+                // this.topList.push(dataTosave);
+                this.topList.push(doc.data());
+            });
+        }).catch(err => console.log("Get failed, error" + err));
+
+        // var topCollection = this.firestoreService.getData(this.topCollection);
+        // console.log("TOPCOLLECTION::::;", topCollection);
+
+        this.box4Collection.get().then((querySnapshot: firestore.QuerySnapshot) => {
             querySnapshot.forEach(doc => {
                 var dataTosave = doc.data();
                 dataTosave.id = doc.id;
-                li.push(dataTosave);
-                console.log("LIIIIIIIIII", li);
-                storage.getDownloadUrl({
-                    bucket: 'gs://belrish-store.appspot.com',
-                    remoteFullPath: li[li.length - 1].imgpath,
-                }).then(remoteURL => {
-                    this.topImg.push(remoteURL);
-                    console.log("Remote URL: " + remoteURL);
-                }).catch(error => {
-                    console.log("Error: " + error);
-                })
+                this.box4List.push(dataTosave);
             });
-            this.topList = li;
-            console.log("TOPLIST:::::::::::", this.topList);
         }).catch(err => console.log("Get failed, error" + err));
 
+        this.categoriesCollection.get().then((querySnapshot: firestore.QuerySnapshot) => {
+            querySnapshot.forEach(doc => {
+                var dataTosave = doc.data();
+                dataTosave.id = doc.id;
+                this.categoriesImg.push(dataTosave);
+            });
+        }).catch(err => console.log("Get failed, error" + err));
 
+        this.byFlavourCollection.get().then((querySnapshot: firestore.QuerySnapshot) => {
+            querySnapshot.forEach(doc => {
+                var dataTosave = doc.data();
+                dataTosave.id = doc.id;
+                this.byFlavourList.push(dataTosave);
+            });
+        }).catch(err => console.log("Get failed, error" + err));
 
+        this.byOccasionCollection.get().then((querySnapshot: firestore.QuerySnapshot) => {
+            querySnapshot.forEach(doc => {
+                var dataTosave = doc.data();
+                dataTosave.id = doc.id;
+                this.byOccasionList.push(dataTosave);
+            });
+        }).catch(err => console.log("Get failed, error" + err));
 
-
-
-
-
-
-        // this.box4Collection.get().then((querySnapshot: firestore.QuerySnapshot) => {
-        //     const li = [];
-        //     querySnapshot.forEach(doc => {
-        //         var dataTosave = doc.data();
-        //         dataTosave.id = doc.id;
-        //         li.push(dataTosave);
-        //         //   const path=li[li.length-1].imgpath;
-        //         //   this.getdown(path,this.box4Img);
-        //         storage.getDownloadUrl({
-        //             bucket: 'gs://belrish-store.appspot.com',
-        //             remoteFullPath: li[li.length - 1].imgpath,
-        //         }).then(remoteURL => {
-        //             this.box4Img.push(remoteURL);
-        //             console.log("Remote URL: " + remoteURL);
-        //         }).catch(error => {
-        //             console.log("Error: " + error);
-        //         })
-        //         console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-        //     });
-        //     this.box4List = li;
-        // })
-        // this.categoriesCollection.get().then((querySnapshot: firestore.QuerySnapshot) => {
-        //     const li = [];
-        //     querySnapshot.forEach(doc => {
-        //         var dataTosave = doc.data();
-        //         dataTosave.id = doc.id;
-        //         li.push(dataTosave);
-        //         //   const path=li[li.length-1].imgpath;
-        //         //   this.getdown(path,this.box4Img);
-        //         storage.getDownloadUrl({
-        //             bucket: 'gs://belrish-store.appspot.com',
-        //             remoteFullPath: li[li.length - 1].imgpath,
-        //         }).then(remoteURL => {
-        //             this.categoriesImg.push(remoteURL);
-        //             console.log("Remote URL: " + remoteURL);
-        //         }).catch(error => {
-        //             console.log("Error: " + error);
-        //         })
-        //         console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-        //     });
-        //     this.categoriesList = li;
-        // })
-        //     .catch(err => console.log("Get failed, error" + err));
-        // this.box4Collection.get().then((querySnapshot: firestore.QuerySnapshot) => {
-        //     const li = [];
-        //     querySnapshot.forEach(doc => {
-        //         var dataTosave = doc.data();
-        //         dataTosave.id = doc.id;
-        //         li.push(dataTosave);
-        //         storage.getDownloadUrl({
-        //             bucket: 'gs://belrish-store.appspot.com',
-        //             remoteFullPath: li[li.length - 1].imgpath,
-        //         }).then(remoteURL => {
-        //             this.box4Img.push(remoteURL);
-        //             console.log("Remote URL: " + remoteURL);
-        //         }).catch(error => {
-        //             console.log("Error: " + error);
-        //         })
-        //         console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-        //     });
-        //     this.box4List = li;
-        // })
-        // this.byFlavourCollection.get().then((querySnapshot: firestore.QuerySnapshot) => {
-        //     const li = [];
-        //     querySnapshot.forEach(doc => {
-        //         var dataTosave = doc.data();
-        //         dataTosave.id = doc.id;
-        //         li.push(dataTosave);
-        //         storage.getDownloadUrl({
-        //             bucket: 'gs://belrish-store.appspot.com',
-        //             remoteFullPath: li[li.length - 1].imgpath,
-        //         }).then(remoteURL => {
-        //             this.byfalvourImg.push(remoteURL);
-        //             console.log("Remote URL: " + remoteURL);
-        //         }).catch(error => {
-        //             console.log("Error: " + error);
-        //         })
-        //         console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-        //     });
-        //     this.byFlavourList = li;
-        // })
-        //     .catch(err => console.log("Get failed, error" + err));
-        // this.byOccasionCollection.get().then((querySnapshot: firestore.QuerySnapshot) => {
-        //     const li = [];
-        //     querySnapshot.forEach(doc => {
-        //         var dataTosave = doc.data();
-        //         dataTosave.id = doc.id;
-        //         li.push(dataTosave);
-        //         storage.getDownloadUrl({
-        //             bucket: 'gs://belrish-store.appspot.com',
-        //             remoteFullPath: li[li.length - 1].imgpath,
-        //         }).then(remoteURL => {
-        //             this.byOccasionImg.push(remoteURL);
-        //             console.log("Remote URL: " + remoteURL);
-        //         }).catch(error => {
-        //             console.log("Error: " + error);
-        //         })
-        //         console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-        //     });
-        //     this.byOccasionList = li;
-        // })
-        //     .catch(err => console.log("Get failed, error" + err));
-        // this.sliderCollection.get().then((querySnapshot: firestore.QuerySnapshot) => {
-        //     const li = [];
-        //     querySnapshot.forEach(doc => {
-        //         var dataTosave = doc.data();
-        //         dataTosave.id = doc.id;
-        //         li.push(dataTosave);
-        //         storage.getDownloadUrl({
-        //             bucket: 'gs://belrish-store.appspot.com',
-        //             remoteFullPath: li[li.length - 1].imgpath,
-        //         }).then(remoteURL => {
-        //             this.sliderImg.push(remoteURL);
-        //             console.log("Remote URL: " + remoteURL);
-        //         }).catch(error => {
-        //             console.log("Error: " + error);
-        //         })
-        //         console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-        //     });
-        //     this.sliderList = li;
-        // })
-        //     .catch(err => console.log("Get failed, error" + err));
-
-
-
-
-
+        this.sliderCollection.get().then((querySnapshot: firestore.QuerySnapshot) => {
+            querySnapshot.forEach(doc => {
+                var dataTosave = doc.data();
+                dataTosave.id = doc.id;
+                this.sliderImg.push(dataTosave);
+            });
+        }).catch(err => console.log("Get failed, error" + err));
 
         this.isLoading = false;
         this.selectedPage = 0;
         this.sliderImage1 = "res://slider";
         this.sliderImage2 = "res://slider2";
-        this.sliderImage3 = "res://slider3";
-        this.sliderImage4 = "res://slider4";
-        this.specialImage1 = "res://gallery";
-        this.specialImage2 = "res://gallery";
-        this.specialImage3 = "res://gallery";
-        this.specialImage4 = "res://gallery";
+
         this.occassionHeading = "Explore by occassions";
         this.sendCakesHeading = "Send cakes by flavour";
         this.topTrendyHeading = "Top Trendy";
