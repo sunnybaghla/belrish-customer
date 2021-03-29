@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { PageChangeEventData } from "nativescript-image-swipe";
 import { Color, Page, ScrollEventData, ScrollView, SwipeGestureEventData, View } from '@nativescript/core';
 import { ScreenDimensions } from './../../shared/ScreenDimensions';
+const firebase = require("@nativescript/firebase/app");
 
 @Component({
   selector: 'ns-item-details',
@@ -18,10 +19,12 @@ export class ItemDetailsComponent implements OnInit {
   @ViewChild("player", { static: false }) player: ElementRef;
   @ViewChild("label", { static: false }) label: ElementRef;
   // @ViewChild("textField", { static: false }) textField: ElementRef;
-
+  itemCollection;
+  itemList=[];
   defaultPrice: number = 0;
   itemImgVid: any[] = [];
   flag: boolean = false;
+  priceIndex:number;
   recDisc: number;
   secure: boolean;
   recItem: {
@@ -72,8 +75,22 @@ export class ItemDetailsComponent implements OnInit {
     this.screenWidth = ScreenDimensions.getwidth(100);
   }
 
-
+itemData;
   ngOnInit() {
+    this.priceIndex=0;
+
+    this.itemCollection = firebase.firestore().collection("product").doc("eiV2VLk8kugMFLfOEiak");
+    this.itemCollection.get().then(doc => {
+      this.itemData=doc.data();
+      if (doc.exists) {
+        console.trace("ITEMDATA::::::::::::::::::::::",this.itemData);
+        
+      } else {
+        console.log("No such document!");
+      }
+    });
+    console.log("asdadsad");
+  // }).catch(err => console.log("Get failed, error" + err));
     this.itemImgVid.push({ imageUrl: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQVTn9fEI1b14f5naz1oVFjJWOxda-fFvYOFcHD36WTUuFdflrGFUk0H0fi5xxI3U3JlzVHPT-CiylMqnlVksyZ90zPXhygJxHTNFmnGtHFfk5CKysGYRYmrg&usqp=CAc" });
 
     this.itemImgVid.push({ imageUrl: "https://i2-prod.mirror.co.uk/incoming/article2912355.ece/ALTERNATES/s615/Chocolate-Bar.jpg" });
@@ -81,7 +98,7 @@ export class ItemDetailsComponent implements OnInit {
     this.ItemAllInfo.push({
       imageUrl: ["https://i2-prod.mirror.co.uk/incoming/article2912355.ece/ALTERNATES/s615/Chocolate-Bar.jpg",
         "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQVTn9fEI1b14f5naz1oVFjJWOxda-fFvYOFcHD36WTUuFdflrGFUk0H0fi5xxI3U3JlzVHPT-CiylMqnlVksyZ90zPXhygJxHTNFmnGtHFfk5CKysGYRYmrg&usqp=CAc",
-        "http://techslides.com/demos/sample-videos/small.mp4",
+        "http://chtechslides.com/demos/sample-videos/small.mp4",
         "http://techslides.com/demos/sample-videos/small.3gp",
         "https://i2-prod.mirror.co.uk/incoming/article2912355.ece/ALTERNATES/s615/Chocolate-Bar.jpg"
       ],
@@ -193,16 +210,16 @@ export class ItemDetailsComponent implements OnInit {
   }
 
   pricecount(i) {
-    this.defaultPrice = i;
+    this.priceIndex = i;
   }
 
-  checkSameDay() {
-    for (var i = 0; i < this.ItemAllInfo[0].pincode.sameDay.length; i++) {
-      if (this.ItemAllInfo[0].pincode.sameDay[i] === 152116) {
-        return true;
-      }
-    }
-    return false;
+  checkSameDay(type) {
+    // if(
+    // return true;
+    // else return true;
+    // if(this.itemData.type.toString().startsWith("0"))
+    // return true;
+    // else return false;
   }
 
   midNights() {

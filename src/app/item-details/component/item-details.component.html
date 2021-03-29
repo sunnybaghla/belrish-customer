@@ -26,45 +26,43 @@
                 <StackLayout orientation="vertical">
                     <StackLayout height='10%'>
                         <GridLayout #topView [height]="screenHeight*0.40" (tap)="ontap()">
-                            <Carousel #myCarousel debug="true" [items]="ItemAllInfo[0].imageUrl" height="100%"
+                            <!-- <Carousel #myCarousel debug="true" [items]="itemData.imageUrl" height="100%"
                                 width="100%" color="white" (pageChanged)="myChangePageEvent($event)"
                                 android:indicatorAnimation="scale" indicatorColor="red" indicatorOffset="0, -10"
                                 showIndicator="true" indicatorRadius='4'>
-                                <CarouselItem *ngFor="let item of ItemAllInfo[0].imageUrl; index as i"
-                                    [backgroundColor]="item.color" verticalAlignment="middle" (tap)="myTapPageEvent()">
+                                <CarouselItem *ngFor="let item of itemData.imageUrl; index as i"
+                                     verticalAlignment="middle" (tap)="myTapPageEvent()">
                                     <GridLayout>
-                                        <ng-container *ngIf="chkImgVid(i); else video">
-                                            <Image [src]="item" stretch="aspectFill"></Image>
-                                        </ng-container>
-                                        <ng-template id="video">
-                                        <VideoPlayer:Video id="player" [src]="item" autoplay="true" controls="false"
-                                            fill="true" muted="true" height="200">
-                                        </VideoPlayer:Video>
-                                        </ng-template>
+                                        <Image [src]="item" stretch="aspectFill"></Image>
                                     </GridLayout>
                                 </CarouselItem>
-                            </Carousel>
+                            </Carousel> -->
+                            <RadListView [items]="itemData.imageUrl"  style="background-color: blue;padding: 0;margin: 0;padding: 0;">
+                                <ListViewLinearLayout style="background-color: teal;"  tkListViewLayout scrollDirection="vertical">
+                                </ListViewLinearLayout>
+                                <ng-template style="background-color: chocolate;" let-item="item" let-i="index">
+                                    <StackLayout class="btnSize" style="background-color: pink;padding: 0;margin: 0;">
+                                        <Image  [src]="item"   (tap)="pricecount(i)"></Image>
+                                    </StackLayout>
+                                </ng-template>
+                            </RadListView>
                         </GridLayout>
                     </StackLayout>
                     <StackLayout class="mainHeading" style="padding: 0;" [width]="screenWidth*0.95" >
-                        <!-- <ListView  [items]="ItemAllInfo" style="padding: 0;">
-                            <ng-template let-item="item" let-i="index"> -->
                                 <StackLayout >
-                                    <label text="item.ItemName" color="black" fontSize='19'></label>
-                                    <label text="item.itemDesc" textWrap="true" fontSize='15' ></label>
+                                    <label [text]="itemData.name" color="black" fontSize='19'></label>
+                                    <label [text]="itemData.shortDescription" textWrap="true" fontSize='15' ></label>
                                     <StackLayout orientation="Horizontal" padding="0">
-                                        <label text="'₹'+ 565"
+                                        <label [text]="'₹'+ itemData.sellPrice[priceIndex]"
                                             color="black" fontSize='20' ></label>
-                                        <label *ngIf="chkDiscount()" text="  '₹  '+666"                                           fontSize='16' textDecoration="line-through" ></label>
-                                        <label *ngIf="chkDiscount()" text="36+'%OFF'"
+                                        <label *ngIf="chkDiscount()" [text]="  '₹  '+itemData.mrp[priceIndex]"                                           fontSize='16' textDecoration="line-through" ></label>
+                                        <label *ngIf="chkDiscount()" [text]="itemData.discount[priceIndex]+'%OFF'"
                                             color="Red"></label>
                                     </StackLayout>
                                     <label text="inclusive of all taxex" fontSize='13' color="green"
                                         >
                                     </label>
                                 </StackLayout>
-                            <!-- </ng-template>
-                        </ListView> -->
                     </StackLayout>
 
                     
@@ -72,32 +70,28 @@
                     
                     <StackLayout [width]="screenWidth*0.95"  *ngIf="multiSize()"  style="background-color: brown;" >
                         <Label text="Quantity" style="font-size: 16%;font-weight: 500;"></Label>
-                        <RadListView [items]="ItemAllInfo[0].ItemPrice"  style="background-color: blue;padding: 0;margin: 0;padding: 0;">
+                        <RadListView [items]="itemData.unitQuantity"  style="background-color: blue;padding: 0;margin: 0;padding: 0;">
                             <ListViewLinearLayout style="background-color: teal;"  tkListViewLayout scrollDirection="Horizontal">
                             </ListViewLinearLayout>
                             <ng-template style="background-color: chocolate;" let-item="item" let-i="index">
-                                <!-- <StackLayout style="padding: 0;background-color: darkgreen;"> -->
                                 <StackLayout class="btnSize" style="background-color: pink;padding: 0;margin: 0;">
-                                    <Label  [text]="item.size" [class.btnSel]="i===defaultPrice"   (tap)="pricecount(i)"></Label>
-                                    <!-- <button [text]="item.size" [class.Selected]="i===defaultPrice" class="btnSize"
-                                        (tap)="pricecount(i)"></button> -->
-                                    <!-- </StackLayout> -->
+                                    <Label  [text]="item" [class.btnSel]="i===defaultPrice"   (tap)="pricecount(i)"></Label>
                                 </StackLayout>
                             </ng-template>
                         </RadListView>
                     </StackLayout>
 
-                    <StackLayout   style="background-color: yellow;" [width]="screenWidth*.95"  >
+                    <StackLayout    [width]="screenWidth*.95"  >
                         <label text="Product Highlights" class="pro" [marginBottom]="screenWidth*.01"></label>
-                        <RadListView [items]="ItemAllInfo[0].proHighlight" style="background-color: red;padding: 0;" marginBottom="0" >
+                        <RadListView [items]="itemData.filterCategory" style="padding: 0;" marginBottom="0" >
                             <ListViewLinearLayout tkListViewLayout scrollDirection="Horizontal" height="0">
                             </ListViewLinearLayout>
                             <ng-template let-item="item" let-i="index">
-                                <StackLayout style="background-color: black;" >
+                                <StackLayout >
                                     <GridLayout rows="*,*" >
-                                        <label row="0" [text]="item.heading" [width]="screenWidth*.25" color="gray" style="font-weight: 600;" >
+                                        <label row="0" [text]="item" [width]="screenWidth*.25" color="gray" style="font-weight: 600;" >
                                         </label>
-                                        <label row="1" [text]="item.info" [width]="screenWidth*.25" ></label>
+                                        <label row="1" [text]="itemData.filterSubCategory[i]" [width]="screenWidth*.25" ></label>
                                     </GridLayout>
                                 </StackLayout>
                             </ng-template>
@@ -108,39 +102,34 @@
                     <StackLayout [width]="screenWidth*0.95" class="delivery"  backgroundColor="white">
                         <label text="Delivery and Services for" style="font-size: 16%;font-weight: 600;" >
                         </label>
-                        <label *ngIf="checkSameDay()" text="✔ Same day delivery available" color="black"></label>
-                        <label *ngIf="midNights()" text="✔ Midnight delivery available" color="black"></label>
+                        <label *ngIf="itemData.deliveryType == '0'"  text="✔ Same day delivery available" color="black"></label>
+                        <label  text="✔ Mid night delivery available" color="black"></label>
 
                     </StackLayout>
 
-                    <StackLayout class="mainHeading" [width]="screenWidth*.95" [marginTop]="screenHeight*.01" >
+                    <StackLayout *ngIf="itemData.messageLine == 'true' "  class="mainHeading" [width]="screenWidth*.95" [marginTop]="screenHeight*.01" >
 
-                            <TextField style="font-size: 16%;margin: 0;" hint="Enter the name to print On cake" ></TextField>
+                            <TextField  style="font-size: 16%;margin: 0;" hint="Enter the name to print On cake" ></TextField>
                         
                     </StackLayout>
 
                     <StackLayout  class="delivery"  [width]="screenWidth*.95" [marginTop]="screenHeight*.01">
                         <label text="Product Details"  class="details" style="margin: 0;"></label>
-                        <!-- <label text="+" wid class="details" marginBottom='10'></label> -->
                     </StackLayout>
                      <GridLayout   class="mainHeading" backgroundColor="white" [width]="screenWidth*.95">
-                        <RadListView height="auto" [items]="ItemAllInfo[0].desc">
+                        <RadListView height="auto" [items]="itemData.descHeading">
                             <ng-template let-item="item" let-i="index">
                                 <StackLayout >
                                     <ScollView>
                                         <StackLayout >
-                                            <label [text]="item.heading" color="black" fontSize='16'></label>
-                                            <label [text]="item.info" textWrap="true" ></label>
+                                            <label [text]="item" color="black" fontSize='16'></label>
+                                            <label [text]="itemData.descValue" textWrap="true" ></label>
                                         </StackLayout>
                                     </ScollView>
                                 </StackLayout>
-
                             </ng-template>
                         </RadListView>
                     </GridLayout>
-
-                  
-
                     <StackLayout class="mainHeading" [width]="screenWidth*.95">
                         <Label text="Recommnd items" style="font-size: 16%;font-weight: 600;"></Label>
                         <RadListView [items]="recItem" [marginTop]="screenHeight*.01">
@@ -164,7 +153,6 @@
                                                     <label *ngIf="checkRecSell(i)" [text]="checkRecDis(i) +'%OFF'"
                                                         color="red" marginLeft='10'></label>
                                                 </StackLayout>
-                                                
                                             </StackLayout>
                                         </StackLayout>
                                     </GridLayout>
